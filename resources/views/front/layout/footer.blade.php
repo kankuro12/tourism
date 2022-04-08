@@ -131,7 +131,7 @@ $data = $footer['data'];
         </div>
     </div>
     <div class="hyperlink">
-        <div class="container">
+        <div class="container " style="padding-top:1rem;">
             {{-- <div class="slide-logo-wrapper">
                 <div class="logo-item">
                     <a href="#" class="link">

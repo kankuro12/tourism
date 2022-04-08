@@ -87,6 +87,7 @@ class SettingController extends Controller
                 'explore_text'=>'',
                 'explore_bg'=>'',
                 'explore_image'=>'',
+                'exp_image'=>'',
                 'explore_video'=>''
             ]);
             return view('admin.setting.home',compact('data'));
@@ -100,7 +101,8 @@ class SettingController extends Controller
                 'explore_text'=>'',
                 'explore_bg'=>'',
                 'explore_image'=>'',
-                'explore_video'=>''
+                'explore_video'=>'',
+                'exp_image'=>'',
             ]);
             $data=[
                 'slider_title'=>$request->slider_title,
@@ -124,6 +126,11 @@ class SettingController extends Controller
                 $data['explore_image']=$request->explore_image->store('uploads');
             }else{
                 $data['explore_image']=$olddata->explore_image;
+            }
+            if($request->hasFile('exp_image') ){
+                $data['exp_image']=$request->exp_image->store('uploads');
+            }else{
+                $data['exp_image']=$olddata->exp_image??'';
             }
             SM::setSetting('homepage',$data);
             return redirect()->back()->with('message','Homepage Setting Saved Sucessfuly');

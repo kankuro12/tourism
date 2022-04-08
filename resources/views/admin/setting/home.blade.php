@@ -37,7 +37,22 @@ Settings / Home
                 </div>
             </div>
         </div>
+        <div class="bg-white shadow mb-3">
+            <div class="card-body">
 
+                <h4>
+                    Expeirence Setting
+                </h4>
+                <hr>
+                <div class="row">
+
+                    <div class="col-12">
+                        <label for="exp_image">Image (1920 x 1200)</label>
+                        <input type="file" name="exp_image" id="exp_image" class="image" required data-default-file="{{asset($data->exp_image)}}">
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="bg-white shadow mb-3">
             <div class="card-body">
 

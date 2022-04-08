@@ -25,6 +25,7 @@ class TourGuideController extends Controller
             $guide->facebook=$request->facebook;
             $guide->instagram=$request->instagram;
             $guide->twitter=$request->twitter;
+            $guide->about=$request->about;
             $guide->image=$request->image->store('uploads/guide');
             $guide->save();
             return redirect()->back()->with('message','Guide Saved Sucessfully');
@@ -43,6 +44,7 @@ class TourGuideController extends Controller
             $guide->facebook=$request->facebook;
             $guide->instagram=$request->instagram;
             $guide->twitter=$request->twitter;
+            $guide->about=$request->about;
             if($request->hasFile('image')){
                 $guide->image=$request->image->store('uploads/guide');
             }

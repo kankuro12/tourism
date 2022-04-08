@@ -68,6 +68,12 @@
                             </div>
                             <div class="col-12">
                                 <div class="form-group">
+                                    <label for="about">About </label>
+                                    <textarea type="text" name="about" id="about"  class="form-control " ></textarea>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
                                     <button class="btn btn-primary">Save Tour Guide</button>
                                     <a href="{{ route('admin.tourguide.index') }}" class="btn btn-danger">Cancel</a>
                                 </div>
