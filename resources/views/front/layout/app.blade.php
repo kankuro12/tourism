@@ -123,7 +123,7 @@
                 color: #434A54;
                 display: block;
                 overflow: hidden;
-                padding: 10px 5px;
+                padding-top:  5px;
             }
 
             .w-100 {

@@ -1,107 +1,6 @@
 @extends('front.layout.app')
 @section('css')
-    <style>
-        .chapters {
-            padding: 40px 0px;
-            min-height: 400px;
-        }
 
-        .chapters .col-md-4 {
-            padding: 5px;
-        }
-
-        .chapter {
-            display: block;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .chapter>.overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .chapter>.overlay>.inner {
-            position: absolute;
-            color: white;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            padding: 15px 10px;
-
-
-
-        }
-
-        .chapter>.overlay>.inner>.text {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-
-        }
-
-        .chapter>.overlay>.inner>.title {
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .chapter img {
-            width: 100%;
-        }
-
-        .destination-bar {
-            height: 60px;
-        }
-
-        .notice {
-            border: 1px solid #F6F6F6;
-            padding: 10px 20px;
-            background-color: white;
-
-        }
-
-        .notice .date {
-            padding: 5px 10px;
-            color: white;
-            font-size: 0.9rem;
-            background: #FFDD00;
-            width: 150px;
-            display: inline-block;
-            border-radius: 5px;
-            font-weight: 600;
-            text-align: center;
-        }
-
-        .notice a {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            text-decoration: none;
-            font-weight: 500;
-            color: #434A54;
-            display: block;
-            overflow: hidden;
-            padding: 10px 5px;
-        }
-
-        .w-100 {
-            width: 100%;
-        }
-
-        @media(max-width:425px) {
-            .chapters{
-                min-height: 0px;
-            }
-            .destination-bar {
-                height: 0px;
-            }
-        }
-
-    </style>
 @endsection
 @section('title', 'Home')
 @section('content')
@@ -228,7 +127,7 @@
                         <div class="text">
                             {{ $data->explore_text }}
                         </div>
-                        <a href="tour-result.html" class="btn btn-maincolor">read more</a>
+                        {{-- <a href="tour-result.html" class="btn btn-maincolor">read more</a> --}}
                     </div>
                 </div>
                 <div class="col-md-7">
@@ -257,8 +156,19 @@
                 <div class="notice">
                     <div class="date">{{ $notice->created_at->toFormattedDateString() }}</div>
                     <a href="">{{ $notice->name }}</a>
+                    <div>
+                        {{$notice->desc}}
+                    </div>
+                    <div>
+                        <a target="_blank" href="{{asset($notice->image)}}">Download</a>
+                    </div>
                 </div>
             @endforeach
+            @if($hasmore)
+            <div class="text-center">
+                <a href="{{route('notices')}}">View More</a>
+            </div>
+            @endif
         </div>
     </div>
 

@@ -30,11 +30,16 @@ route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
 route::get('festivals',[FrontController::class,'festivals'])->name('festivals');
 Route::get('festival/{festival}', [FrontController::class,'festival'])->name('festival');
+route::get('events',[FrontController::class,'events'])->name('events');
+Route::get('event/{event}', [FrontController::class,'event'])->name('event');
+route::get('notices',[FrontController::class,'notices'])->name('notices');
+Route::get('notice/{notice}', [FrontController::class,'notice'])->name('notice');
 route::get('experiences',[FrontController::class,'experiences'])->name('experiences');
 Route::get('experience/{experience}', [FrontController::class,'experience'])->name('experience');
 Route::get('destinations/{type}', [FrontController::class,'destinations'])->name('destinations');
 Route::get('destination/{destination}', [FrontController::class,'destination'])->name('destination');
-
+Route::get('galleries', [FrontController::class,'galleries'])->name('galleries');
+Route::get('gallery/{gallery}', [FrontController::class,'gallery'])->name('gallery');
 route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::prefix('setting')->name('setting.')->group(function(){
