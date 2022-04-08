@@ -8,5 +8,4 @@
 
 /.github export-ignore
 CHANGELOG.md export-ignore
-/public/upload
-/public/uploads
+

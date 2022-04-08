@@ -1,7 +1,7 @@
  <!-- HEADER-->
  <header>
     <div class="bg-transparent {{Route::is('home')?'header-01':''}}">
-        <div class="header-topbar">
+        {{-- <div class="header-topbar">
             <div class="container">
                 <ul class="topbar-left list-unstyled list-inline pull-left">
                     <li>
@@ -65,7 +65,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> --}}
         <div class="header-main">
             <div class="container">
                 <div class="header-main-wrapper">
@@ -83,28 +83,12 @@
                     </div>
                     <nav class="navigation">
                         <ul class="nav-links nav navbar-nav">
-                            <li class="dropdown active">
-                                <a href="javascript:void(0)" class="main-menu">
+                            <li>
+                                <a href="/" class="main-menu">
                                     <span class="text">Home</span>
-                                    <span class="icons-dropdown">
-                                        <i class="fa fa-angle-down"></i>
-                                    </span>
                                 </a>
-                                <ul class="dropdown-menu dropdown-menu-1">
-                                    <li>
-                                        <a href="index.html" class="link-page">Homepage default</a>
-                                    </li>
-                                    <li>
-                                        <a href="homepage-02.html" class="link-page">Homepage 02</a>
-                                    </li>
-                                    <li>
-                                        <a href="homepage-03.html" class="link-page">Homepage 03</a>
-                                    </li>
-                                    <li>
-                                        <a href="homepage-04.html" class="link-page">Homepage 04</a>
-                                    </li>
-                                </ul>
                             </li>
+
                             <li>
                                 <a href="about-us.html" class="main-menu">
                                     <span class="text">about</span>

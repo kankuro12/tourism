@@ -62,6 +62,7 @@ Settings / Home
                         <label for="explore_bg">Background (1920 x 1000)</label>
                         <input type="file" name="explore_bg" id="explore_bg" class="image" required data-default-file="{{asset($data->explore_bg)}}">
                     </div>
+
                     <div class="col-md-12">
                         <label for="explore_text">Text</label>
                         <textarea name="explore_text" id="explore_text" class="form-control">{{$data->explore_text}}</textarea>

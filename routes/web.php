@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GalleryMainController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,7 @@ route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::prefix('setting')->name('setting.')->group(function(){
         route::match(['GET','POST'],'front',[SettingController::class,'front'])->name('front');
+        route::match(['GET','POST'],'footer',[SettingController::class,'footer'])->name('footer');
         route::match(['GET','POST'],'homepage',[SettingController::class,'homePage'])->name('homepage');
     });
 
@@ -108,6 +110,20 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
         Route::match(["GET","POST"],'add',[FestivalController::class,'add'])->name('add');
         Route::match(["GET","POST"],'edit/{festival}',[FestivalController::class,'edit'])->name('edit');
         Route::match(["GET","POST"],'del/{festival}',[FestivalController::class,'del'])->name('del');
+
+    });
+    Route::prefix('festivals')->name('festivals.')->group(function(){
+        Route::get('',[FestivalController::class,'index'])->name('index');
+        Route::match(["GET","POST"],'add',[FestivalController::class,'add'])->name('add');
+        Route::match(["GET","POST"],'edit/{festival}',[FestivalController::class,'edit'])->name('edit');
+        Route::match(["GET","POST"],'del/{festival}',[FestivalController::class,'del'])->name('del');
+
+    });
+    Route::prefix('tourguide')->name('tourguide.')->group(function(){
+        Route::get('',[TourGuideController::class,'index'])->name('index');
+        Route::match(["GET","POST"],'add',[TourGuideController::class,'add'])->name('add');
+        Route::match(["GET","POST"],'edit/{guide}',[TourGuideController::class,'edit'])->name('edit');
+        Route::match(["GET","POST"],'del/{guide}',[TourGuideController::class,'del'])->name('del');
 
     });
     Route::view('dashboard','welcome')->name('dashboard');
