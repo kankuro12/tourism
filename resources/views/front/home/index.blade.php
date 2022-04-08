@@ -56,6 +56,41 @@
             height:60px;
         }
 
+        .notice {
+            border: 1px solid #F6F6F6;
+            padding: 10px 20px;
+            background-color: white;
+
+        }
+
+       .notice .date {
+            padding: 5px 10px;
+            color: white;
+            font-size: 0.9rem;
+            background: #FFDD00;
+            width: 150px;
+            display: inline-block;
+            border-radius: 5px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .notice a {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            text-decoration: none;
+            font-weight: 500;
+            color:#434A54;
+            display: block;
+            overflow: hidden;
+            padding: 10px 5px;
+        }
+
+        @media(max-width:425px){
+            .destination-bar{
+            height:0px;
+        }
+        }
     </style>
 @endsection
 @section('title', 'Home')
@@ -70,12 +105,12 @@
                             <span class="boder"></span>
                         </p>
                     </div>
-                    <div class="group-btn">
+                    {{-- <div class="group-btn">
                         <a href="#" data-hover="CLICK ME" class="btn-click">
                             <span class="text">go explore now</span>
                             <span class="icons fa fa-long-arrow-right"></span>
                         </a>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -203,7 +238,22 @@
             </div>
         </div>
     </section>
-    <section class="travelers">
+    <div class="bg-white chapters">
+        <div class="container">
+            <div class="destination-bar"></div>
+            <h2 class="text-left">
+                Latest Notices
+            </h2>
+            @foreach ($notices as $notice)
+                <div class="notice">
+                    <div class="date">{{$notice->created_at->toFormattedDateString();}}</div>
+                    <a href="">{{$notice->name}}</a>
+                </div>
+            @endforeach
+        </div>
+    </div>
+
+    <section class="travelers" style="background-image: url('{{ asset($data->explore_bg) }}')">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
