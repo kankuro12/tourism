@@ -90,7 +90,7 @@
                             </li>
                             <li class="dropdown">
                                 <a href="javascript:void(0)" class="main-menu">
-                                    <span class="text">Explore Bodoland</span>
+                                    <span class="text">Destinations</span>
                                     <span class="icons-dropdown">
                                         <i class="fa fa-angle-down"></i>
                                     </span>
@@ -98,7 +98,7 @@
                                 <ul class="dropdown-menu dropdown-menu-1">
                                     @foreach (App\Models\DestinationType::all() as $dt)
                                         <li>
-                                            <a href="tour-result.html" class="link-page">{{$dt->name}}</a>
+                                            <a href="{{route('destinations',['type'=>$dt->id])}}" class="link-page">{{$dt->name}}</a>
                                         </li>
                                     @endforeach
 
@@ -106,18 +106,21 @@
                             </li>
                             <li class="dropdown">
                                 <a href="javascript:void(0)" class="main-menu">
-                                    <span class="text">Experiences</span>
+                                    <span class="text">Explore Bodoland</span>
                                     <span class="icons-dropdown">
                                         <i class="fa fa-angle-down"></i>
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-1">
-                                    @foreach (App\Models\Experience::all() as $dt)
-                                        <li>
-                                            <a href="tour-result.html" class="link-page">{{$dt->name}}</a>
-                                        </li>
-                                    @endforeach
-
+                                    <li>
+                                        <a href="{{route('chapters')}}" class="link-page">Chapters</a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-result.html" class="link-page">Experiences</a>
+                                    </li>
+                                    <li>
+                                        <a href="tour-result.html" class="link-page">Festivals</a>
+                                    </li>
                                 </ul>
                             </li>
 

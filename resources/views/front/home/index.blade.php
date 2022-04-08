@@ -3,6 +3,7 @@
     <style>
         .chapters {
             padding: 40px 0px;
+            min-height: 400px;
         }
 
         .chapters .col-md-4 {
@@ -52,8 +53,8 @@
             width: 100%;
         }
 
-        .destination-bar{
-            height:60px;
+        .destination-bar {
+            height: 60px;
         }
 
         .notice {
@@ -63,7 +64,7 @@
 
         }
 
-       .notice .date {
+        .notice .date {
             padding: 5px 10px;
             color: white;
             font-size: 0.9rem;
@@ -74,23 +75,32 @@
             font-weight: 600;
             text-align: center;
         }
+
         .notice a {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             text-decoration: none;
             font-weight: 500;
-            color:#434A54;
+            color: #434A54;
             display: block;
             overflow: hidden;
             padding: 10px 5px;
         }
 
-        @media(max-width:425px){
-            .destination-bar{
-            height:0px;
+        .w-100 {
+            width: 100%;
         }
+
+        @media(max-width:425px) {
+            .chapters{
+                min-height: 0px;
+            }
+            .destination-bar {
+                height: 0px;
+            }
         }
+
     </style>
 @endsection
 @section('title', 'Home')
@@ -121,16 +131,16 @@
             <div class="row">
                 @foreach ($chapters as $chapter)
                     <div class="col-md-4 col-6">
-                        <a href="{{route('chapter',['chapter'=>$chapter->id])}}" class="chapter">
+                        <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter">
                             <img src="{{ asset($chapter->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
 
                                     <div class="text">
-                                        {{$chapter->short_desc}}
+                                        {{ $chapter->short_desc }}
                                     </div>
                                     <div class="title">
-                                        {{$chapter->name}}
+                                        {{ $chapter->name }}
                                     </div>
                                 </div>
                             </div>
@@ -154,15 +164,14 @@
                 <div class="tours-content margin-top70">
                     <div class="tours-list">
                         @foreach ($experiences as $experience)
-
                         @endforeach
                         <div class="tours-layout">
                             <div class="image-wrapper">
                                 <a href="tour-view.html" class="link">
-                                    <img src="{{asset($experience->image)}}" alt="" class="img-responsive">
+                                    <img src="{{ asset($experience->image) }}" alt="" class="img-responsive">
                                 </a>
                                 <div class="title-wrapper">
-                                    <a href="tour-view.html" class="title">{{$experience->name}}</a>
+                                    <a href="tour-view.html" class="title">{{ $experience->name }}</a>
                                     <i class="icons flaticon-circle"></i>
                                 </div>
 
@@ -171,7 +180,7 @@
 
                                 <div class="content">
 
-                                    <p class="text">{{$experience->short_desc}}</p>
+                                    <p class="text">{{ $experience->short_desc }}</p>
                                     <a href="tour-view.html" class="left-btn">View Detail</a>
 
                                 </div>
@@ -186,18 +195,18 @@
     <div class="bg-white chapters">
         <div class="container">
             {{-- <div class="destination-bar"></div> --}}
-            <h2 class="text-center">
+            <h2 >
                 Galleries
             </h2>
             <div class="row">
                 @foreach ($galleries as $gallery)
                     <div class="col-md-4 col-6">
-                        <a href="{{route('chapter',['chapter'=>$gallery->id])}}" class="chapter">
+                        <a href="{{ route('chapter', ['chapter' => $gallery->id]) }}" class="chapter">
                             <img src="{{ asset($gallery->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
                                     <div class="title">
-                                        {{$gallery->name}}
+                                        {{ $gallery->name }}
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +247,7 @@
             </div>
         </div>
     </section>
-    <div class="bg-white chapters">
+    <div class="bg-white chapters" >
         <div class="container">
             <div class="destination-bar"></div>
             <h2 class="text-left">
@@ -246,8 +255,8 @@
             </h2>
             @foreach ($notices as $notice)
                 <div class="notice">
-                    <div class="date">{{$notice->created_at->toFormattedDateString();}}</div>
-                    <a href="">{{$notice->name}}</a>
+                    <div class="date">{{ $notice->created_at->toFormattedDateString() }}</div>
+                    <a href="">{{ $notice->name }}</a>
                 </div>
             @endforeach
         </div>
@@ -260,31 +269,28 @@
                     <div class="traveler-wrapper padding-top padding-bottom">
                         <div class="group-title white">
                             <div class="sub-title">
-                                <p class="text">RELAX AND ENJOY</p>
+                                <p class="text">Celibrate with us</p>
                                 <i class="icons flaticon-people"></i>
                             </div>
-                            <h2 class="main-title">Travel Guides</h2>
+                            <h2 class="main-title">OUR FESTIVALS</h2>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-8">
                     <div class="traveler-list">
-                        @foreach ($guides as $guide)
-
-                        <div class="traveler">
-                            <div class="cover-image">
-                                <img src="{{asset($guide->image)}}" alt="">
-                            </div>
-                            <div class="wrapper-content">
-                                <div class="avatar">
-                                    <img src="{{asset($guide->image)}}" alt="" class="img-responsive">
+                        @foreach ($festivals as $festival)
+                            <div class="traveler">
+                                <div>
+                                    <img class="w-100" src="{{ asset($festival->image) }}" alt="">
                                 </div>
-                                <p class="name">{{$guide->name}}</p>
-                                <p class="address">{{$guide->address}}</p>
-                                <p class="description">{{$guide->about}}</p>
+                                <div class="wrapper-content">
+                                    <br>
+                                    <p class="name">{{ $festival->name }}</p>
+                                    <p class="description" style="margin:0px;">{{$festival->short_desc}}</p>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
+
 
                     </div>
                 </div>
@@ -294,18 +300,18 @@
     <div class="bg-white chapters">
         <div class="container">
             <div class="destination-bar"></div>
-            <h2 class="text-center">
+            <h2 >
                 Top Destinations
             </h2>
             <div class="row">
                 @foreach ($destinations as $destination)
                     <div class="col-md-4 col-6">
-                        <a href="{{route('chapter',['chapter'=>$destination->id])}}" class="chapter">
+                        <a href="{{ route('chapter', ['chapter' => $destination->id]) }}" class="chapter">
                             <img src="{{ asset($destination->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
                                     <div class="title">
-                                        {{$destination->name}}
+                                        {{ $destination->name }}
                                     </div>
                                 </div>
                             </div>

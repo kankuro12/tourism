@@ -26,7 +26,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [FrontController::class,'home'])->name('home');
+route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
+
+Route::get('destinations/{type}', [FrontController::class,'destinations'])->name('destinations');
+Route::get('destination/{destination}', [FrontController::class,'destination'])->name('destination');
 
 route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){

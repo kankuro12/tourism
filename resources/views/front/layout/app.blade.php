@@ -38,6 +38,148 @@
                 $('#color-skins').attr('href', 'assets/css/color-1/color.css');
             }
         </script>
+        <style>
+            .chapters {
+                padding: 40px 0px;
+                min-height: 400px;
+            }
+
+            .chapters .col-md-4 {
+                padding: 5px;
+            }
+
+            .chapter {
+                display: block;
+                text-decoration: none;
+                position: relative;
+            }
+
+            .chapter>.overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(0, 0, 0, 0.3);
+            }
+
+            .chapter>.overlay>.inner {
+                position: absolute;
+                color: white;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                padding: 15px 10px;
+
+
+
+            }
+
+            .chapter>.overlay>.inner>.text {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+
+            }
+
+            .chapter>.overlay>.inner>.title {
+                font-weight: 600;
+                font-size: 18px;
+            }
+
+            .chapter img {
+                width: 100%;
+            }
+
+            .destination-bar {
+                height: 60px;
+            }
+
+            .notice {
+                border: 1px solid #F6F6F6;
+                padding: 10px 20px;
+                background-color: white;
+
+            }
+
+            .notice .date {
+                padding: 5px 10px;
+                color: white;
+                font-size: 0.9rem;
+                background: #FFDD00;
+                width: 150px;
+                display: inline-block;
+                border-radius: 5px;
+                font-weight: 600;
+                text-align: center;
+            }
+
+            .notice a {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                text-decoration: none;
+                font-weight: 500;
+                color: #434A54;
+                display: block;
+                overflow: hidden;
+                padding: 10px 5px;
+            }
+
+            .w-100 {
+                width: 100%;
+            }
+
+            .media{
+                position: relative;
+                height: 170px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                overflow: hidden;
+                background: #222222;
+            }
+            .media .video{
+                position: absolute;
+                top: 0px;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background: rgba(0, 0, 0, 0.4)
+            }
+            .media .video .icon{
+                font-size: 50px;
+                color:white;
+            }
+
+
+
+
+            @media(max-width:425px) {
+                .media .video .icon{
+                    font-size: 30px;
+                    color:white;
+                }
+                .col-6{
+                    width: 50%;
+                    float: left;
+                }
+                .chapters{
+                    min-height: 0px;
+                }
+                .destination-bar {
+                    height: 0px;
+                }
+
+                .media{
+                    height: 100px;
+                }
+            }
+
+        </style>
         @yield('css')
     </head>
     <body>

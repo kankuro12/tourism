@@ -33,6 +33,10 @@
                 <div class="tab-pane active pt-3" id="image" role="tabpanel" aria-labelledby="image-tab">
                     <form action="" id="image-form">
                         @csrf
+                        <div>
+                            Image should be of 4:3 ratio.
+                        </div>
+                        <hr>
                         <input type="hidden" name="type" value="{{ $type }}">
                         <input type="hidden" name="key" value="{{ $key }}">
                         <input type="hidden" name="media" value="1">
