@@ -116,10 +116,10 @@
                                         <a href="{{route('chapters')}}" class="link-page">Chapters</a>
                                     </li>
                                     <li>
-                                        <a href="tour-result.html" class="link-page">Experiences</a>
+                                        <a href="{{route('experiences')}}" class="link-page">Experiences</a>
                                     </li>
                                     <li>
-                                        <a href="tour-result.html" class="link-page">Festivals</a>
+                                        <a href="{{route('festivals')}}" class="link-page">Festivals</a>
                                     </li>
                                 </ul>
                             </li>

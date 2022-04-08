@@ -6,6 +6,8 @@ use App\Models\Chapter;
 use App\Models\Destination;
 use App\Models\DestinationContact;
 use App\Models\DestinationType;
+use App\Models\Experience;
+use App\Models\Festival;
 use App\Models\Image;
 use App\Models\Notice;
 use App\SM;
@@ -41,6 +43,32 @@ class FrontController extends Controller
         $chapters = DB::table('chapters')->where('id', '!=', $chapter->id)->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
         $medias = Image::where('type', 0)->where('key', $chapter->id)->get();
         return view('front.chapters.single', compact('chapters', 'chapter', 'medias'));
+    }
+    public function festivals()
+    {
+        $festivals = DB::table('festivals')->get(['id', 'name', 'image']);
+        $data = SM::getSetting('homepage');
+
+        return view('front.festivals.index', compact('festivals', 'data'));
+    }
+    public function festival(Festival $festival)
+    {
+        $festivals = DB::table('festivals')->where('id', '!=', $festival->id)->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
+        $medias = Image::where('type', 3)->where('key', $festival->id)->get();
+        return view('front.festivals.single', compact('festivals', 'festival', 'medias'));
+    }
+    public function experiences()
+    {
+        $experiences = DB::table('experiences')->get(['id', 'name', 'image']);
+        $data = SM::getSetting('homepage');
+
+        return view('front.experiences.index', compact('experiences', 'data'));
+    }
+    public function experience(Experience $experience)
+    {
+        $experiences = DB::table('experiences')->where('id', '!=', $experience->id)->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
+        $medias = Image::where('type', 3)->where('key', $experience->id)->get();
+        return view('front.experiences.single', compact('experiences', 'experience', 'medias'));
     }
     public function destinations(DestinationType $type)
     {

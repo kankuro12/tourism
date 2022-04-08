@@ -28,7 +28,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class,'home'])->name('home');
 route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
-
+route::get('festivals',[FrontController::class,'festivals'])->name('festivals');
+Route::get('festival/{festival}', [FrontController::class,'festival'])->name('festival');
+route::get('experiences',[FrontController::class,'experiences'])->name('experiences');
+Route::get('experience/{experience}', [FrontController::class,'experience'])->name('experience');
 Route::get('destinations/{type}', [FrontController::class,'destinations'])->name('destinations');
 Route::get('destination/{destination}', [FrontController::class,'destination'])->name('destination');
 

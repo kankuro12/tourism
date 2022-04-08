@@ -2,10 +2,10 @@
 @section('css')
 @endsection
 @section('title')
-    {{$type->name}}
+    Experiences
 @endsection
 @section('content')
-<section class="page-banner blog-detail" style="background-image: url({{asset($type->image)}})">
+<section class="page-banner blog-detail" style="background-image: url({{asset($data->slider_image)}})">
     <div class="container">
         <div class="page-title-wrapper">
             <div class="page-title-content">
@@ -15,11 +15,11 @@
                     </li>
 
                     <li class="active">
-                        <a href="#" class="link">{{$type->name}}</a>
+                        <a href="#" class="link">Experiences</a>
                     </li>
                 </ol>
                 <div class="clearfix"></div>
-                <h1  style="margin-bottom:20px;">{{$type->name}}</h1>
+                <h1  style="margin-bottom:20px;">Experiences</h1>
             </div>
         </div>
     </div>
@@ -27,14 +27,14 @@
 <section class="page-main padding-top padding-bottom">
     <div class="container">
         <div class="row">
-            @foreach ($destinations as $destination)
+            @foreach ($experiences as $experience)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('destination', ['destination' => $destination->id]) }}" class="chapter">
-                        <img src="{{ asset($destination->image) }}" alt="">
+                    <a href="{{ route('experience', ['experience' => $experience->id]) }}" class="chapter">
+                        <img src="{{ asset($experience->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">
                                 <div class="title">
-                                    {{ $destination->name }}
+                                    {{ $experience->name }}
                                 </div>
                             </div>
                         </div>

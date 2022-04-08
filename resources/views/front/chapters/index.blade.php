@@ -28,7 +28,7 @@
     <div class="container">
         <div class="row">
             @foreach ($chapters as $chapter)
-                <div class="col-md-4 ">
+                <div class="col-md-4 " style="padding-bottom:10px">
                     <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter">
                         <img src="{{ asset($chapter->image) }}" alt="">
                         <div class="overlay">

@@ -130,7 +130,7 @@
 
             <div class="row">
                 @foreach ($chapters as $chapter)
-                    <div class="col-md-4 col-6">
+                    <div class="col-md-4 ">
                         <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter">
                             <img src="{{ asset($chapter->image) }}" alt="">
                             <div class="overlay">
@@ -200,7 +200,7 @@
             </h2>
             <div class="row">
                 @foreach ($galleries as $gallery)
-                    <div class="col-md-4 col-6">
+                    <div class="col-md-4 ">
                         <a href="{{ route('chapter', ['chapter' => $gallery->id]) }}" class="chapter">
                             <img src="{{ asset($gallery->image) }}" alt="">
                             <div class="overlay">
@@ -305,7 +305,7 @@
             </h2>
             <div class="row">
                 @foreach ($destinations as $destination)
-                    <div class="col-md-4 col-6">
+                    <div class="col-md-4 ">
                         <a href="{{ route('chapter', ['chapter' => $destination->id]) }}" class="chapter">
                             <img src="{{ asset($destination->image) }}" alt="">
                             <div class="overlay">
