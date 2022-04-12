@@ -36,7 +36,7 @@
                     <a href="{{route('festivals')}}" class="main-menu">Festivals</a>
                 </li>
                 <li>
-                    <a href="about-us.html" class="main-menu">
+                    <a href="{{route('galleries')}}" class="main-menu">
                         <span class="text">Gallery</span>
                     </a>
                 </li>
@@ -46,10 +46,11 @@
                     </a>
                 </li>
                 <li>
-                    <a href="contact.html" class="main-menu">
+                    <a href="{{route('contact')}}" class="main-menu">
                         <span class="text">contact</span>
                     </a>
                 </li>
+
             </ul>
 
         </div>
