@@ -30,7 +30,17 @@ class FrontController extends Controller
         $destinations = DB::table('destinations')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
         $experiences = DB::table('experiences')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image', 'short_desc']);
         $galleries = DB::table('galleries')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
-        $data = SM::getSetting('homepage');
+        $data = SM::getSetting('homepage')??(object)([
+            'slider_title'=>'',
+            'slider_subtitle'=>'',
+            'slider_image'=>'',
+            'explore_title'=>'',
+            'explore_text'=>'',
+            'explore_bg'=>'',
+            'explore_image'=>'',
+            'exp_image'=>'',
+            'explore_video'=>''
+        ]);;
         return view('front.home.index', compact('hasmore','festivals', 'notices', 'data', 'chapters', 'guides', 'galleries', 'destinations', 'experiences'));
     }
 
