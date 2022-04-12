@@ -134,6 +134,7 @@ class FrontController extends Controller
     public function contact(){
         $data=SM::getSetting('contact')??(object)([
             'map'=>'',
+            'map_bg'=>'',
             'phone'=>'',
             'email'=>'',
             'addr'=>'',
