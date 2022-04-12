@@ -131,4 +131,20 @@ class FrontController extends Controller
         return view('front.notices.index', compact('notices', 'data'));
     }
 
+    public function contact(){
+        $data=SM::getSetting('contact')??(object)([
+            'map'=>'',
+            'phone'=>'',
+            'email'=>'',
+            'addr'=>'',
+            'slider_image'=>'',
+            "others"=>[],
+            "contact_title"=>"",
+            "contact_subtitle"=>"",
+            "contact_image"=>"",
+            "contact_bg"=>"",
+        ]);
+        return view('front.contact.index',compact('data'));
+    }
+
 }

@@ -40,12 +40,14 @@ Route::get('destinations/{type}', [FrontController::class,'destinations'])->name
 Route::get('destination/{destination}', [FrontController::class,'destination'])->name('destination');
 Route::get('galleries', [FrontController::class,'galleries'])->name('galleries');
 Route::get('gallery/{gallery}', [FrontController::class,'gallery'])->name('gallery');
+Route::get('contact', [FrontController::class,'contact'])->name('contact');
 route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::prefix('setting')->name('setting.')->group(function(){
         route::match(['GET','POST'],'front',[SettingController::class,'front'])->name('front');
         route::match(['GET','POST'],'footer',[SettingController::class,'footer'])->name('footer');
         route::match(['GET','POST'],'homepage',[SettingController::class,'homePage'])->name('homepage');
+        route::match(['GET','POST'],'contact',[SettingController::class,'contact'])->name('contact');
     });
 
     Route::prefix('gallery-main')->name('gallery.main.')->group(function(){

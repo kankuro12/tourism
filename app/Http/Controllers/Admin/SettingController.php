@@ -136,4 +136,85 @@ class SettingController extends Controller
             return redirect()->back()->with('message','Homepage Setting Saved Sucessfuly');
         }
     }
+
+    public function contact(Request $request)
+    {
+        if($request->getMethod()=="GET"){
+            $data=SM::getSetting('contact')??(object)([
+                'map'=>'',
+                'map_bg'=>'',
+                'phone'=>'',
+                'email'=>'',
+                'addr'=>'',
+                'slider_image'=>'',
+                "others"=>[],
+                "contact_title"=>"",
+                "contact_subtitle"=>"",
+                "contact_image"=>"",
+                "contact_bg"=>"",
+            ]);
+            return view('admin.setting.contact',compact('data'));
+        }else{
+
+            $olddata=SM::getSetting('contact')??(object)([
+                'map'=>'',
+                'map_bg'=>'',
+                'phone'=>'',
+                'email'=>'',
+                'addr'=>'',
+                "others"=>[],
+                "contact_title"=>"",
+                'slider_image'=>'',
+                "contact_subtitle"=>"",
+                "contact_image"=>"",
+                "contact_bg"=>"",
+            ]);
+            $others=[];
+            if ($request->filled('others')) {
+                foreach ($request->others as $key => $other) {
+                    array_push($others,[
+                        'name'=>$request->input('name_'.$other)??'',
+                        'phone'=>$request->input('phone_'.$other)??'',
+                        'designation'=>$request->input('designation_'.$other)??'',
+                        'email'=>$request->input('email_'.$other)??'',
+                    ]);
+                }
+            }
+            $data=[
+                'map'=>$request->map,
+                'phone'=>$request->phone,
+                'addr'=>$request->addr,
+                'email'=>$request->email,
+                'contact_title'=>$request->contact_title,
+                'contact_subtitle'=>$request->contact_subtitle,
+                'others'=>$others
+            ];
+
+            if($request->hasFile('slider_image') ){
+                $data['slider_image']=$request->slider_image->store('uploads');
+            }else{
+                $data['slider_image']=$olddata->slider_image;
+            }
+            if($request->hasFile('contact_bg') ){
+                $data['contact_bg']=$request->contact_bg->store('uploads');
+            }else{
+                $data['contact_bg']=$olddata->contact_bg;
+            }
+
+            if($request->hasFile('contact_image') ){
+                $data['contact_image']=$request->contact_image->store('uploads');
+            }else{
+                $data['contact_image']=$olddata->contact_image;
+            }
+            if($request->hasFile('map_bg') ){
+                $data['map_bg']=$request->map_bg->store('uploads');
+            }else{
+                $data['map_bg']=$olddata->map_bg;
+            }
+
+            SM::setSetting('contact',$data);
+            return redirect()->back()->with('message','Contact Setting Saved Sucessfuly');
+        }
+    }
 }
+
