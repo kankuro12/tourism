@@ -63,7 +63,6 @@
                 <div class="tours-content margin-top70">
                     <div class="tours-list">
                         @foreach ($experiences as $experience)
-                        @endforeach
                         <div class="tours-layout">
                             <div class="image-wrapper">
                                 <a href="tour-view.html" class="link">
@@ -85,6 +84,7 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
                     <a href="about-us.html" class="btn btn-transparent margin-top70">more experiences</a>
                 </div>
