@@ -39,6 +39,12 @@
                     <a href="{{route('guides')}}" class="main-menu">Tour Guides</a>
                 </li>
                 <li>
+                    <a href="{{route('events')}}" class="main-menu">Events</a>
+                </li>
+                <li>
+                    <a href="{{route('notices')}}" class="main-menu">Notices</a>
+                </li>
+                <li>
                     <a href="{{route('galleries')}}" class="main-menu">
                         <span class="text">Gallery</span>
                     </a>

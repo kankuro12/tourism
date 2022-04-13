@@ -3,10 +3,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 @endsection
 @section('title')
-    Festival - {{ $festival->name }}
+    event - {{ $event->name }}
 @endsection
 @section('content')
-    <section class="page-banner blog-detail" style="background-image: url({{ asset($festival->image) }})">
+    <section class="page-banner blog-detail" style="background-image: url({{ asset($event->image) }})">
         <div class="container">
             <div class="page-title-wrapper">
                 <div class="page-title-content">
@@ -16,14 +16,22 @@
                         </li>
 
                         <li>
-                            <a href="{{ route('festivals') }}" class="link">Festivals</a>
+                            <a href="{{ route('events') }}" class="link">events</a>
                         </li>
                         <li class="active">
-                            <a href="#" class="link">{{ $festival->name }}</a>
+                            <a href="#" class="link">{{ $event->name }}</a>
                         </li>
                     </ol>
                     <div class="clearfix"></div>
-                    <h1 style="margin-bottom:20px;">{{ $festival->name }}</h1>
+                    <h1 style="margin-bottom:20px;">
+                        {{ $event->name }} <br>
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        {{ $event->start }}
+                        @if ($event->start !=$event->end)
+                            -  {{$event->end}}
+                        @endif
+
+                    </h1>
                 </div>
             </div>
         </div>
@@ -31,8 +39,8 @@
     <section class="page-main padding-top padding-bottom">
         <div class="container">
             <div class="row">
-                <div class="col-md-8">
-                    {!! $festival->desc !!}
+                <div class="col-md-12">
+                    {!! $event->desc !!}
                     <div class="row">
                         @foreach ($medias as $media)
                             <div class="col-md-4 col-6" style="padding:5px;">
@@ -57,25 +65,7 @@
 
 
                 </div>
-                <div class="col-md-4">
-                    <h3>
-                        Other Festivals
-                    </h3>
-                    @foreach ($festivals as $festival)
-                        <div style="margin-bottom:10px;">
-                            <a href="{{ route('festival', ['festival' => $festival->id]) }}" class="chapter">
-                                <img src="{{ asset($festival->image) }}" alt="">
-                                <div class="overlay">
-                                    <div class="inner">
-                                        <div class="title">
-                                            {{ $festival->name }}
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
+
             </div>
         </div>
     </section>

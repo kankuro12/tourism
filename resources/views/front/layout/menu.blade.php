@@ -124,6 +124,9 @@
                                     <li>
                                         <a href="{{route('guides')}}" class="link-page">Tour Guides</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('events')}}" class="link-page">events</a>
+                                    </li>
                                 </ul>
                             </li>
 
@@ -131,6 +134,9 @@
                                 <a href="{{route('galleries')}}" class="main-menu">
                                     <span class="text">Gallery</span>
                                 </a>
+                            </li>
+                            <li>
+                                <a href="{{route('notices')}}" class="main-menu">Notices</a>
                             </li>
                             <li>
                                 <a href="about-us.html" class="main-menu">

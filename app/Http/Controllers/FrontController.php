@@ -112,15 +112,15 @@ class FrontController extends Controller
 
     public function events()
     {
-        $events = DB::table('events')->get(['id', 'name', 'image'])->paginate(5);
+        $events = Event::orderBy('start','desc')->paginate(5);
         $data = SM::getSetting('homepage');
-
+        // dd($events);
         return view('front.events.index', compact('events', 'data'));
     }
     public function event(Event $event)
     {
         $events = DB::table('events')->where('id', '!=', $event->id)->orderByRaw('RAND()')->take(3)->get(['id', 'name', 'image']);
-        $medias = Image::where('type', 3)->where('key', $event->id)->get();
+        $medias = Image::where('type', 5)->where('key', $event->id)->get();
         return view('front.events.single', compact('events', 'event', 'medias'));
     }
 
