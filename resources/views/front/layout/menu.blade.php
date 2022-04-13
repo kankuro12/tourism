@@ -121,6 +121,9 @@
                                     <li>
                                         <a href="{{route('festivals')}}" class="link-page">Festivals</a>
                                     </li>
+                                    <li>
+                                        <a href="{{route('guides')}}" class="link-page">Tour Guides</a>
+                                    </li>
                                 </ul>
                             </li>
 

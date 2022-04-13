@@ -12,6 +12,7 @@ use App\Models\Festival;
 use App\Models\gallery;
 use App\Models\Image;
 use App\Models\Notice;
+use App\Models\TourGuide;
 use App\SM;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -121,6 +122,20 @@ class FrontController extends Controller
         $events = DB::table('events')->where('id', '!=', $event->id)->orderByRaw('RAND()')->take(3)->get(['id', 'name', 'image']);
         $medias = Image::where('type', 3)->where('key', $event->id)->get();
         return view('front.events.single', compact('events', 'event', 'medias'));
+    }
+
+    public function guides()
+    {
+        $guides = DB::table('tour_guides')->paginate(6);
+        $data = SM::getSetting('homepage');
+
+        return view('front.guides.index', compact('guides', 'data'));
+    }
+    public function guide(TourGuide $guide)
+    {
+        $guides = DB::table('guides')->where('id', '!=', $guide->id)->orderByRaw('RAND()')->take(3)->get(['id', 'name', 'image']);
+        $medias = Image::where('type', 3)->where('key', $guide->id)->get();
+        return view('front.guides.single', compact('guides', 'guide', 'medias'));
     }
 
     public function notices()

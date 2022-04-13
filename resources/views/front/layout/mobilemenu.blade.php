@@ -36,6 +36,9 @@
                     <a href="{{route('festivals')}}" class="main-menu">Festivals</a>
                 </li>
                 <li>
+                    <a href="{{route('guides')}}" class="main-menu">Tour Guides</a>
+                </li>
+                <li>
                     <a href="{{route('galleries')}}" class="main-menu">
                         <span class="text">Gallery</span>
                     </a>
