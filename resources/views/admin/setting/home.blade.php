@@ -122,6 +122,25 @@ Settings / Home
                 </div>
             </div>
         </div>
+        <div class="bg-white shadow mb-3">
+            <div class="card-body">
+
+                <h4>
+                    Guide Setting
+                </h4>
+                <hr>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="guide_title"> Title</label>
+                        <input type="text" name="guide_title" id="guide_title" class="form-control" required value="{{$data->guide_title??''}}">
+                    </div>
+                    <div class="col-12">
+                        <label for="guide_image">Image (1920 x 1200)</label>
+                        <input type="file" name="guide_image" id="guide_image" class="image"  {{($data->guide_image??'')==''?'required':''}}  data-default-file="{{asset($data->guide_image??'')}}">
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <div class="bg-white shadow mb-3">
             <div class="card-body">

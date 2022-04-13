@@ -32,6 +32,8 @@ route::get('festivals',[FrontController::class,'festivals'])->name('festivals');
 Route::get('festival/{festival}', [FrontController::class,'festival'])->name('festival');
 route::get('events',[FrontController::class,'events'])->name('events');
 Route::get('event/{event}', [FrontController::class,'event'])->name('event');
+route::get('guides',[FrontController::class,'guides'])->name('guides');
+Route::get('guide/{guide}', [FrontController::class,'guide'])->name('guide');
 route::get('notices',[FrontController::class,'notices'])->name('notices');
 Route::get('notice/{notice}', [FrontController::class,'notice'])->name('notice');
 route::get('experiences',[FrontController::class,'experiences'])->name('experiences');

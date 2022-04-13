@@ -92,6 +92,8 @@ class SettingController extends Controller
                 "chapter_title"=>"",
                 "chapter_subtitle"=>"",
                 "festival_image"=>"",
+                "guide_image"=>"",
+                "guide_title"=>"",
             ]);
             return view('admin.setting.home',compact('data'));
         }else{
@@ -109,7 +111,8 @@ class SettingController extends Controller
                 "chapter_title"=>"",
                 "chapter_subtitle"=>"",
                 "festival_image"=>"",
-
+                "guide_image"=>"",
+                "guide_title"=>"",
             ]);
             $data=[
                 'slider_title'=>$request->slider_title,
@@ -118,7 +121,8 @@ class SettingController extends Controller
                 'explore_text'=>$request->explore_text,
                 'explore_video'=>$request->explore_video,
                 'chapter_title'=>$request->chapter_title,
-                'chapter_subtitle'=>$request->chapter_subtitle
+                'chapter_subtitle'=>$request->chapter_subtitle,
+                'guide_title'=>$request->guide_title,
             ];
             if($request->hasFile('slider_image') ){
                 $data['slider_image']=$request->slider_image->store('uploads');
@@ -141,11 +145,19 @@ class SettingController extends Controller
             }else{
                 $data['exp_image']=$olddata->exp_image??'';
             }
+
             if($request->hasFile('festival_image') ){
                 $data['festival_image']=$request->festival_image->store('uploads');
             }else{
                 $data['festival_image']=$olddata->festival_image??'';
             }
+
+            if($request->hasFile('guide_image') ){
+                $data['guide_image']=$request->guide_image->store('uploads');
+            }else{
+                $data['guide_image']=$olddata->guide_image??'';
+            }
+
             SM::setSetting('homepage',$data);
             return redirect()->back()->with('message','Homepage Setting Saved Sucessfuly');
         }

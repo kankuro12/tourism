@@ -24,7 +24,7 @@ class FrontController extends Controller
     {
         $chapters = DB::table('chapters')->get(['id', 'name', 'short_desc', 'image']);
         $festivals = DB::table('festivals')->take(6)->get(['id', 'name', 'short_desc', 'image']);
-        $guides = DB::table('tour_guides')->orderByRaw('RAND()')->take(6)->get();
+        $guides = DB::table('tour_guides')->orderByRaw('RAND()')->take(4)->get();
         $notices = Notice::orderBy('id', 'desc')->take(6)->get();
         $hasmore=Notice::count()>6;
         $destinations = DB::table('destinations')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);

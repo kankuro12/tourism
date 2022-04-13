@@ -20,6 +20,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-3">
+                        <label for="image">Image (512 X 512)</label>
                         <input type="file" name="image" id="image" class="form-control image" data-default-file="{{asset($guide->image)}}">
                     </div>
                     <div class="col-md-9">

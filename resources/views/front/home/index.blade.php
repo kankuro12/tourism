@@ -28,11 +28,11 @@
         <div class="hotel-view-main padding-top padding-bottom">
             <div class="container">
                 <div class="journey-block">
-                    <h3 class="title-style-2">{{$data->chapter_title??''}}
-                        <span> {{$data->chapter_subtitle??''}}</span>
+                    <h3 class="title-style-2">{{ $data->chapter_title ?? '' }}
+                        <span> {{ $data->chapter_subtitle ?? '' }}</span>
                     </h3>
                     <style>
-                        .chapter-full{
+                        .chapter-full {
                             display: block;
                             text-decoration: none;
                             width: 100%;
@@ -43,37 +43,41 @@
 
 
                         }
-                        .chapter-full img{
-                            width:100%;
+
+                        .chapter-full img {
+                            width: 100%;
                             border-radius: 10px;
                         }
 
-                        .chapter-full .overlay-full{
+                        .chapter-full .overlay-full {
                             position: absolute;
                             left: 7%;
                             right: 7%;
                             bottom: -30px;
                             background: white;
-                            color:#222;
+                            color: #222;
                             border-radius: 10px;
                             box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
-                            padding:10px;
+                            padding: 10px;
                         }
 
-                        .chapter-full .overlay-full:hover{
-                            color:#d7ba00;
+                        .chapter-full .overlay-full:hover {
+                            color: #d7ba00;
                         }
-                        .chapter-full .overlay-full .title{
+
+                        .chapter-full .overlay-full .title {
                             font-weight: 600;
                             font-size: 18px;
                         }
-                        .chapter-full .overlay-full .text{
+
+                        .chapter-full .overlay-full .text {
                             font-weight: 500;
                             font-size: 16px;
                             white-space: nowrap;
                             overflow: hidden;
 
                         }
+
                     </style>
                     <div class="row">
                         @foreach ($chapters as $chapter)
@@ -116,27 +120,27 @@
                 <div class="tours-content margin-top70">
                     <div class="tours-list">
                         @foreach ($experiences as $experience)
-                        <div class="tours-layout">
-                            <div class="image-wrapper">
-                                <a href="tour-view.html" class="link">
-                                    <img src="{{ asset($experience->image) }}" alt="" class="img-responsive">
-                                </a>
-                                <div class="title-wrapper">
-                                    <a href="tour-view.html" class="title">{{ $experience->name }}</a>
-                                    <i class="icons flaticon-circle"></i>
-                                </div>
-
-                            </div>
-                            <div class="content-wrapper">
-
-                                <div class="content">
-
-                                    <p class="text">{{ $experience->short_desc }}</p>
-                                    <a href="tour-view.html" class="left-btn">View Detail</a>
+                            <div class="tours-layout">
+                                <div class="image-wrapper">
+                                    <a href="tour-view.html" class="link">
+                                        <img src="{{ asset($experience->image) }}" alt="" class="img-responsive">
+                                    </a>
+                                    <div class="title-wrapper">
+                                        <a href="tour-view.html" class="title">{{ $experience->name }}</a>
+                                        <i class="icons flaticon-circle"></i>
+                                    </div>
 
                                 </div>
+                                <div class="content-wrapper">
+
+                                    <div class="content">
+
+                                        <p class="text">{{ $experience->short_desc }}</p>
+                                        <a href="tour-view.html" class="left-btn">View Detail</a>
+
+                                    </div>
+                                </div>
                             </div>
-                        </div>
                         @endforeach
                     </div>
                     <a href="about-us.html" class="btn btn-transparent margin-top70">more experiences</a>
@@ -147,7 +151,7 @@
     <div class="bg-white chapters">
         <div class="container">
             {{-- <div class="destination-bar"></div> --}}
-            <h2 >
+            <h2>
                 Galleries
             </h2>
             <div class="row">
@@ -199,7 +203,7 @@
             </div>
         </div>
     </section>
-    <div class="bg-white chapters" >
+    <div class="bg-white chapters">
         <div class="container">
             <div class="destination-bar"></div>
             <h2 class="text-left">
@@ -210,17 +214,17 @@
                     <div class="date">{{ $notice->created_at->toFormattedDateString() }}</div>
                     <a href="">{{ $notice->name }}</a>
                     <div>
-                        {{$notice->desc}}
+                        {{ $notice->desc }}
                     </div>
                     <div>
-                        <a target="_blank" href="{{asset($notice->image)}}">Download</a>
+                        <a target="_blank" href="{{ asset($notice->image) }}">Download</a>
                     </div>
                 </div>
             @endforeach
-            @if($hasmore)
-            <div class="text-center">
-                <a href="{{route('notices')}}">View More</a>
-            </div>
+            @if ($hasmore)
+                <div class="text-center">
+                    <a href="{{ route('notices') }}">View More</a>
+                </div>
             @endif
         </div>
     </div>
@@ -249,7 +253,7 @@
                                 <div class="wrapper-content">
                                     <br>
                                     <p class="name">{{ $festival->name }}</p>
-                                    <p class="description" style="margin:0px;">{{$festival->short_desc}}</p>
+                                    <p class="description" style="margin:0px;">{{ $festival->short_desc }}</p>
                                 </div>
                             </div>
                         @endforeach
@@ -263,7 +267,7 @@
     <div class="bg-white chapters">
         <div class="container">
             <div class="destination-bar"></div>
-            <h2 >
+            <h2>
                 Top Destinations
             </h2>
             <div class="row">
@@ -282,6 +286,193 @@
                     </div>
                 @endforeach
 
+            </div>
+        </div>
+    </div>
+
+            <style>
+                .guides{
+                    background-size: cover;
+                    background-position: bottom;
+                }
+                .guides .view-more{
+                    text-align: center;
+                    padding: 10px 0px;
+
+                }
+                .guides .view-more a{
+                    padding: 5px 10px;
+                    color: white;
+                    font-size: 0.9rem;
+                    background: #121212;
+                    width: 150px;
+                    display: inline-block;
+                    border-radius: 5px;
+                    font-weight: 600;
+                    text-align: center
+                }
+                .chapters.guides h2{
+                    color: white;
+
+
+                }
+                .guide {
+                    display: flex;
+                    text-decoration: none;
+                    width: 100%;
+                    position: relative;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    margin-bottom:30px;
+                }
+                .guide .image-holder{
+                    flex:1;
+                    padding:10px;
+                    background: white;
+
+                }
+
+
+                .guide img{
+                    width:100%;
+
+                }
+                .guide .overlay{
+                    background:white;
+                    color:#434a54;
+                    padding:10px;
+                    text-align: left;
+                    height: 100%;
+                }
+
+                .guide .overlay .title{
+                    font-weight: 500;
+                    font-size: 17px;
+                }
+                .guide .overlay hr{
+                    margin: 5px 0px !important;
+                }
+                .guide .overlay .about{
+                    font-weight: 400;
+                    font-size: 15px;
+                    line-height: 18px;
+                    height: 36px;
+                    overflow: hidden;
+                }
+                .guide .overlay .guide-contact{
+                    display: flex;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                }
+                .guide .overlay .guide-social{
+                    display: flex;
+                    justify-content: start;
+
+                }
+                .guide .overlay .guide-social a:hover{
+                    background: #d7ba00;
+                }
+                .guide .overlay .guide-social a{
+                    height: 35px;
+                    width:35px;
+                    background: #121212;
+                    color: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    margin: 0px 7px;
+                    border-radius: 50%;
+                }
+                @media(max-width:425px){
+                    .guide {
+                        margin-bottom: 15px;
+                        display: block;
+                    }
+                    .guide .overlay .about{
+                        display: none;
+                    }
+                    .guide .image-holder{
+                        flex:1;
+                        padding:0px;
+                    }
+                    .guide img{
+                        border-radius: 0;
+                    }
+
+                    .guide .overlay .guide-contact{
+                        display: block;
+
+                    }
+                    .guide .overlay .guide-contact a{
+                        display: block;
+
+                    }
+                }
+            </style>
+    <div class=" chapters guides" style="background-image: url('{{ asset($data->guide_image??'') }}')">
+        <div class="container">
+            <div class="destination-bar"></div>
+            <h2>
+               {{$data->guide_title}}
+            </h2>
+            <div class="row">
+                @foreach ($guides as $guide)
+                    <div class="col-md-6 ">
+                        <div href="{{ route('guide', ['guide' => $guide->id]) }}" class="guide">
+                            <div class="image-holder">
+                                <img src="{{ asset($guide->image) }}" alt="">
+                            </div>
+                            <div  style="flex:2;">
+                                <div class="overlay" >
+                                    <div class="inner">
+                                        <div class="title">
+                                            {{ $guide->name }}
+                                        </div>
+                                        <div class="guide-address">
+                                            {{ $guide->address }}
+                                        </div>
+                                        <div class="about">
+                                            {{$guide->about}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic doloribus sapiente molestias perferendis nemo animi praesentium harum fugit itaque repellendus cumque eveniet, earum libero maiores necessitatibus quia tenetur suscipit nam!
+                                        </div>
+                                        <hr>
+                                        <div class="guide-contact">
+                                            <a href="tel:{{$guide->phone}}">
+                                                <i class="fa fa-phone" aria-hidden="true"></i>
+                                                {{$guide->phone}}
+                                            </a>
+                                            <a href="mailto:{{$guide->email}}">
+                                                <i class="fa fa-envelope-o" aria-hidden="true"></i>
+                                                {{$guide->email}}
+                                            </a>
+                                        </div>
+                                        <hr>
+                                        <div class="guide-social">
+                                            <a href="{{$guide->facebook}}">
+                                                <i class="fa fa-facebook-f" aria-hidden="true"></i>
+
+                                            </a>
+                                            <a href="mailto:{{$guide->instagram}}">
+                                                <i class="fa fa-instagram" aria-hidden="true"></i>
+
+                                            </a>
+                                            <a href="mailto:{{$guide->twitter}}">
+                                                <i class="fa fa-twitter" aria-hidden="true"></i>
+
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+            <div class="clearfix"></div>
+            <div class="text-center view-more">
+                <a href="{{route('guides')}}">View More
+                </a>
             </div>
         </div>
     </div>
