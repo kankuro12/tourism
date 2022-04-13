@@ -432,7 +432,7 @@
                                             {{ $guide->address }}
                                         </div>
                                         <div class="about">
-                                            {{$guide->about}} Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic doloribus sapiente molestias perferendis nemo animi praesentium harum fugit itaque repellendus cumque eveniet, earum libero maiores necessitatibus quia tenetur suscipit nam!
+                                            {{$guide->about}}
                                         </div>
                                         <hr>
                                         <div class="guide-contact">
