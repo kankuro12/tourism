@@ -67,9 +67,12 @@
                             font-weight: 600;
                             font-size: 18px;
                         }
-                        .chapter-full .overlay-full .title{
+                        .chapter-full .overlay-full .text{
                             font-weight: 500;
                             font-size: 16px;
+                            white-space: nowrap;
+                            overflow: hidden;
+
                         }
                     </style>
                     <div class="row">
