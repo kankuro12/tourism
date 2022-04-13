@@ -24,32 +24,82 @@
             </div>
         </div>
     </section>
-    <div class="bg-white chapters">
-        <div class="container">
+    <section>
+        <div class="hotel-view-main padding-top padding-bottom">
+            <div class="container">
+                <div class="journey-block">
+                    <h3 class="title-style-2">{{$data->chapter_title??''}}
+                        <span> {{$data->chapter_subtitle??''}}</span>
+                    </h3>
+                    <style>
+                        .chapter-full{
+                            display: block;
+                            text-decoration: none;
+                            width: 100%;
+                            position: relative;
+                            margin-bottom: 50px;
+                            border-radius: 10px;
+                            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
-            <div class="row">
-                @foreach ($chapters as $chapter)
-                    <div class="col-md-4 ">
-                        <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter">
-                            <img src="{{ asset($chapter->image) }}" alt="">
-                            <div class="overlay">
-                                <div class="inner">
 
-                                    <div class="text">
-                                        {{ $chapter->short_desc }}
+                        }
+                        .chapter-full img{
+                            width:100%;
+                            border-radius: 10px;
+                        }
+
+                        .chapter-full .overlay-full{
+                            position: absolute;
+                            left: 7%;
+                            right: 7%;
+                            bottom: -30px;
+                            background: white;
+                            color:#222;
+                            border-radius: 10px;
+                            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+                            padding:10px;
+                        }
+
+                        .chapter-full .overlay-full:hover{
+                            color:#d7ba00;
+                        }
+                        .chapter-full .overlay-full .title{
+                            font-weight: 600;
+                            font-size: 18px;
+                        }
+                        .chapter-full .overlay-full .title{
+                            font-weight: 500;
+                            font-size: 16px;
+                        }
+                    </style>
+                    <div class="row">
+                        @foreach ($chapters as $chapter)
+                            <div class="col-md-6 " style="padding: 7px; ">
+                                <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter-full">
+                                    <img src="{{ asset($chapter->image) }}" alt="">
+                                    <div class="overlay-full">
+                                        <div class="inner">
+                                            <div class="text">
+                                                {{ $chapter->short_desc }}
+                                            </div>
+                                            <div class="title">
+                                                {{ $chapter->name }}
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="title">
-                                        {{ $chapter->name }}
-                                    </div>
-                                </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                @endforeach
+                        @endforeach
 
+                    </div>
+
+
+                </div>
             </div>
+
+
         </div>
-    </div>
+    </section>
     <section class="tours padding-top padding-bottom" style="background-image: url('{{ asset($data->exp_image) }}')">
         <div class="container">
             <div class="tours-wrapper">
