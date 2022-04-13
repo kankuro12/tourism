@@ -413,7 +413,7 @@
         <div class="container">
             <div class="destination-bar"></div>
             <h2>
-               {{$data->guide_title}}
+               {{$data->guide_title??''}}
             </h2>
             <div class="row">
                 @foreach ($guides as $guide)
