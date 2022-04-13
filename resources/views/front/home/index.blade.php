@@ -157,7 +157,7 @@
             <div class="row">
                 @foreach ($galleries as $gallery)
                     <div class="col-md-4 ">
-                        <a href="{{ route('chapter', ['chapter' => $gallery->id]) }}" class="chapter">
+                        <a href="{{ route('gallery', ['gallery' => $gallery->id]) }}" class="chapter">
                             <img src="{{ asset($gallery->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
@@ -273,7 +273,7 @@
             <div class="row">
                 @foreach ($destinations as $destination)
                     <div class="col-md-4 ">
-                        <a href="{{ route('chapter', ['chapter' => $destination->id]) }}" class="chapter">
+                        <a href="{{ route('destination', ['destination' => $destination->id]) }}" class="chapter">
                             <img src="{{ asset($destination->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
