@@ -451,11 +451,11 @@
                                                 <i class="fa fa-facebook-f" aria-hidden="true"></i>
 
                                             </a>
-                                            <a href="mailto:{{$guide->instagram}}">
+                                            <a href="{{$guide->instagram}}">
                                                 <i class="fa fa-instagram" aria-hidden="true"></i>
 
                                             </a>
-                                            <a href="mailto:{{$guide->twitter}}">
+                                            <a href="{{$guide->twitter}}">
                                                 <i class="fa fa-twitter" aria-hidden="true"></i>
 
                                             </a>
