@@ -88,7 +88,10 @@ class SettingController extends Controller
                 'explore_bg'=>'',
                 'explore_image'=>'',
                 'exp_image'=>'',
-                'explore_video'=>''
+                'explore_video'=>'',
+                "chapter_title"=>"",
+                "chapter_subtitle"=>"",
+                "festival_image"=>"",
             ]);
             return view('admin.setting.home',compact('data'));
         }else{
@@ -103,13 +106,19 @@ class SettingController extends Controller
                 'explore_image'=>'',
                 'explore_video'=>'',
                 'exp_image'=>'',
+                "chapter_title"=>"",
+                "chapter_subtitle"=>"",
+                "festival_image"=>"",
+
             ]);
             $data=[
                 'slider_title'=>$request->slider_title,
                 'slider_subtitle'=>$request->slider_subtitle,
                 'explore_title'=>$request->explore_title,
                 'explore_text'=>$request->explore_text,
-                'explore_video'=>$request->explore_video
+                'explore_video'=>$request->explore_video,
+                'chapter_title'=>$request->chapter_title,
+                'chapter_subtitle'=>$request->chapter_subtitle
             ];
             if($request->hasFile('slider_image') ){
                 $data['slider_image']=$request->slider_image->store('uploads');
@@ -132,6 +141,11 @@ class SettingController extends Controller
             }else{
                 $data['exp_image']=$olddata->exp_image??'';
             }
+            if($request->hasFile('festival_image') ){
+                $data['festival_image']=$request->festival_image->store('uploads');
+            }else{
+                $data['festival_image']=$olddata->festival_image??'';
+            }
             SM::setSetting('homepage',$data);
             return redirect()->back()->with('message','Homepage Setting Saved Sucessfuly');
         }
@@ -152,6 +166,7 @@ class SettingController extends Controller
                 "contact_subtitle"=>"",
                 "contact_image"=>"",
                 "contact_bg"=>"",
+
             ]);
             return view('admin.setting.contact',compact('data'));
         }else{

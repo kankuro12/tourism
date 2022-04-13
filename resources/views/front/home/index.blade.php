@@ -225,7 +225,7 @@
         </div>
     </div>
 
-    <section class="travelers" style="background-image: url('{{ asset($data->explore_bg) }}')">
+    <section class="travelers" style="background-image: url('{{ asset($data->festival_image) }}')">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">

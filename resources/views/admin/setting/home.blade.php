@@ -32,8 +32,28 @@ Settings / Home
                     </div>
                     <div class="col-12">
                         <label for="slider_image">Image (1920 x 1200)</label>
-                        <input type="file" name="slider_image" id="slider_image" class="image" required data-default-file="{{asset($data->slider_image)}}">
+                        <input type="file" name="slider_image" id="slider_image" class="image" {{($data->slider_image??'')==''?'required':''}}  data-default-file="{{asset($data->slider_image??'')}}">
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white shadow mb-3">
+            <div class="card-body">
+
+                <h4>
+                    Chapter Setting
+                </h4>
+                <hr>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="chapter_title"> Title</label>
+                        <input type="text" name="chapter_title" id="chapter_title" class="form-control" required value="{{$data->chapter_title??''}}">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="chapter_subtitle">Subtitle</label>
+                        <input type="text" name="chapter_subtitle" id="chapter_subtitle" class="form-control" required value="{{$data->chapter_subtitle??''}}">
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -48,7 +68,23 @@ Settings / Home
 
                     <div class="col-12">
                         <label for="exp_image">Image (1920 x 1200)</label>
-                        <input type="file" name="exp_image" id="exp_image" class="image" required data-default-file="{{asset($data->exp_image)}}">
+                        <input type="file" name="exp_image" id="exp_image" class="image"  {{($data->exp_image??'')==''?'required':''}}  data-default-file="{{asset($data->exp_image??'')}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-white shadow mb-3">
+            <div class="card-body">
+
+                <h4>
+                    Festival Setting
+                </h4>
+                <hr>
+                <div class="row">
+
+                    <div class="col-12">
+                        <label for="festival_image">Image (1920 x 1000)</label>
+                        <input type="file" name="festival_image" id="festival_image" class="image" {{($data->festival_image??'')==''?'required':''}}  data-default-file="{{asset($data->festival_image??'')}}">
                     </div>
                 </div>
             </div>
@@ -71,11 +107,11 @@ Settings / Home
                     </div>
                     <div class="col-3">
                         <label for="explore_image">Image (620 x 410)</label>
-                        <input type="file" name="explore_image" id="explore_image" class="image" required data-default-file="{{asset($data->explore_image)}}">
+                        <input type="file" name="explore_image" id="explore_image" class="image"  {{($data->explore_image??'')==''?'required':''}}  data-default-file="{{asset($data->explore_image??'')}}">
                     </div>
                     <div class="col-9">
                         <label for="explore_bg">Background (1920 x 1000)</label>
-                        <input type="file" name="explore_bg" id="explore_bg" class="image" required data-default-file="{{asset($data->explore_bg)}}">
+                        <input type="file" name="explore_bg" id="explore_bg" class="image" {{($data->explore_bg??'')==''?'required':''}}  data-default-file="{{asset($data->explore_bg??'')}}">
                     </div>
 
                     <div class="col-md-12">
@@ -92,6 +128,7 @@ Settings / Home
                 <button class="btn btn-primary">Save</button>
             </div>
         </div>
+
     </form>
 @endsection
 @section('script')
