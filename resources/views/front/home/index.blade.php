@@ -122,11 +122,11 @@
                         @foreach ($experiences as $experience)
                             <div class="tours-layout">
                                 <div class="image-wrapper">
-                                    <a href="tour-view.html" class="link">
+                                    <a href="{{route('experience',['experience'=>$experience->id])}}" class="link">
                                         <img src="{{ asset($experience->image) }}" alt="" class="img-responsive">
                                     </a>
                                     <div class="title-wrapper">
-                                        <a href="tour-view.html" class="title">{{ $experience->name }}</a>
+                                        <a href="{{route('experience',['experience'=>$experience->id])}}" class="title">{{ $experience->name }}</a>
                                         <i class="icons flaticon-circle"></i>
                                     </div>
 
@@ -136,14 +136,14 @@
                                     <div class="content">
 
                                         <p class="text">{{ $experience->short_desc }}</p>
-                                        <a href="tour-view.html" class="left-btn">View Detail</a>
+                                        <a href="{{route('experience',['experience'=>$experience->id])}}" class="left-btn">View Detail</a>
 
                                     </div>
                                 </div>
                             </div>
                         @endforeach
                     </div>
-                    <a href="{{route('experience',['experience'=>$experience->id])}}" class="btn btn-transparent margin-top70">more experiences</a>
+                    <a href="{{route('experiences')}}" class="btn btn-transparent margin-top70">more experiences</a>
                 </div>
             </div>
         </div>
