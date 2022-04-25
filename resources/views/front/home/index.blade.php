@@ -143,7 +143,7 @@
                             </div>
                         @endforeach
                     </div>
-                    <a href="about-us.html" class="btn btn-transparent margin-top70">more experiences</a>
+                    <a href="{{route('experience',['experience'=>$experience->id])}}" class="btn btn-transparent margin-top70">more experiences</a>
                 </div>
             </div>
         </div>
