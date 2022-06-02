@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\TenderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,7 +43,8 @@ Route::get('destinations/{type}', [FrontController::class,'destinations'])->name
 Route::get('destination/{destination}', [FrontController::class,'destination'])->name('destination');
 Route::get('galleries', [FrontController::class,'galleries'])->name('galleries');
 Route::get('gallery/{gallery}', [FrontController::class,'gallery'])->name('gallery');
-Route::get('contact', [FrontController::class,'contact'])->name('contact');
+Route::get('tenders', [FrontController::class,'tenders'])->name('tenders');
+Route::get('who-is-who', [FrontController::class,'contact'])->name('contact');
 route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::prefix('setting')->name('setting.')->group(function(){
@@ -106,6 +108,13 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
         Route::match(["GET","POST"],'add',[EventController::class,'add'])->name('add');
         Route::match(["GET","POST"],'edit/{event}',[EventController::class,'edit'])->name('edit');
         Route::match(["GET","POST"],'del/{event}',[EventController::class,'del'])->name('del');
+
+    });
+    Route::prefix('tenders')->name('tenders.')->group(function(){
+        Route::get('',[TenderController::class,'index'])->name('index');
+        Route::match(["GET","POST"],'add',[TenderController::class,'add'])->name('add');
+        Route::match(["GET","POST"],'edit/{tender}',[TenderController::class,'edit'])->name('edit');
+        Route::match(["GET","POST"],'del/{tender}',[TenderController::class,'del'])->name('del');
 
     });
     Route::prefix('notices')->name('notices.')->group(function(){

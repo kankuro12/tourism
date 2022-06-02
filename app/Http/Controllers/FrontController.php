@@ -164,4 +164,9 @@ class FrontController extends Controller
         return view('front.contact.index',compact('data'));
     }
 
+    public function tenders(){
+        $tenders=DB::table('tenders')->orderBy('id','desc')->select(DB::raw('id,title,file,date(updated_at) as published'))->get();
+        $data = SM::getSetting('homepage');
+        return view('front.tenders.index',compact('tenders','data'));
+    }
 }

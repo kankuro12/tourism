@@ -3,7 +3,7 @@
 
 @endsection
 @section('title')
-    Contact
+    Who is Who
 @endsection
 @section('content')
     <section class="page-banner blog-detail" style="background-image: url({{ asset($data->slider_image) }})">

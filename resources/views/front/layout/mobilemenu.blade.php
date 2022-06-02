@@ -45,18 +45,17 @@
                     <a href="{{route('notices')}}" class="main-menu">Notices</a>
                 </li>
                 <li>
+                    <a href="{{route('tenders')}}" class="main-menu">tenders</a>
+                </li>
+                <li>
                     <a href="{{route('galleries')}}" class="main-menu">
                         <span class="text">Gallery</span>
                     </a>
                 </li>
-                <li>
-                    <a href="about-us.html" class="main-menu">
-                        <span class="text">about</span>
-                    </a>
-                </li>
+
                 <li>
                     <a href="{{route('contact')}}" class="main-menu">
-                        <span class="text">contact</span>
+                        <span class="text">Who is Who</span>
                     </a>
                 </li>
 
