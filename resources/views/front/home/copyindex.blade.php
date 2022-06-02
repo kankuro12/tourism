@@ -24,136 +24,89 @@
             </div>
         </div>
     </section>
-    <div class="journey-block">
+    <section>
+        <div class="hotel-view-main padding-top padding-bottom">
+            <div class="container">
+                <div class="journey-block">
+                    <h3 class="title-style-2">{{ $data->chapter_title ?? '' }}
+                        <span> {{ $data->chapter_subtitle ?? '' }}</span>
+                    </h3>
+                    <style>
+                        .chapter-full {
+                            display: block;
+                            text-decoration: none;
+                            width: 100%;
+                            position: relative;
+                            margin-bottom: 50px;
+                            border-radius: 10px;
+                            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
 
 
-        <style>
+                        }
 
-            .chapter-row{
-                margin: 0px -5px;
-                display: flex;
-                flex-wrap: wrap;
-            }
+                        .chapter-full img {
+                            width: 100%;
+                            border-radius: 10px;
+                        }
+
+                        .chapter-full .overlay-full {
+                            position: absolute;
+                            left: 7%;
+                            right: 7%;
+                            bottom: -30px;
+                            background: white;
+                            color: #222;
+                            border-radius: 10px;
+                            box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+                            padding: 10px;
+                        }
+
+                        .chapter-full .overlay-full:hover {
+                            color: #d7ba00;
+                        }
+
+                        .chapter-full .overlay-full .title {
+                            font-weight: 600;
+                            font-size: 18px;
+                        }
+
+                        .chapter-full .overlay-full .text {
+                            font-weight: 500;
+                            font-size: 16px;
+                            white-space: nowrap;
+                            overflow: hidden;
+
+                        }
+
+                    </style>
+                    <div class="row">
+                        @foreach ($chapters as $chapter)
+                            <div class="col-md-6 " style="padding: 7px; ">
+                                <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter-full">
+                                    <img src="{{ asset($chapter->image) }}" alt="">
+                                    <div class="overlay-full">
+                                        <div class="inner">
+                                            <div class="text">
+                                                {{ $chapter->short_desc }}
+                                            </div>
+                                            <div class="title">
+                                                {{ $chapter->name }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+
+                    </div>
 
 
-            .chapter-row>.col-md-6.main{
-                padding-bottom: 0px !important;
-            }
-
-            .chapter-row>.col-md-6{
-                width: 50%;
-                padding-right:5px;
-                padding-left: 5px;
-                padding-bottom: 10px;
+                </div>
+            </div>
 
 
-            }
-            .chapter-row>.col-md-12.main{
-                padding-bottom: 0px !important;
-            }
-            .chapter-row>.col-md-12{
-                width: 100%;
-                padding-right:5px;
-                padding-left: 5px;
-                padding-bottom: 10px;
-
-
-            }
-            .single-chapter{
-                position: relative;
-                display: block;
-            }
-            .single-chapter>.feature-image{
-                width: 100%;
-            }
-            .single-chapter>.chapter-info{
-                position: absolute;
-                bottom: 0px;
-                left: 0px;
-                right: 0px;
-                top: 0px;
-                padding: 15px;
-                display: flex;
-                align-items: flex-end;
-                background: rgba(0, 0, 0, 0.1);
-
-            }
-            /* .single-chapter>.chapter-info>.logo{
-                height: 30px;
-                widows: 30px;
-
-            } */
-            .single-chapter>.chapter-info>.logo>img{
-                height: 50px;
-                widows: 50px;
-                border-radius: 50%;
-            }
-            .single-chapter>:hover.chapter-info>.logo>img{
-                background: rgba(255, 255, 255, 0.5);
-            }
-            .single-chapter>.chapter-info>.title{
-                line-height: 50px;
-                padding-left: 10px;
-                color:white;
-                font-size: 20px;
-            }
-            .chapter-top{
-                margin-top: 70px;
-                padding-left:40px;
-            }
-
-            .chapters-mobile{
-                display: none;
-            }
-            @media (max-width:425px){
-
-                .chapter-row>div{
-                    width: 100% !important;
-                }
-                .chapters-desktop{
-                    display: none;
-                }
-                .chapter-top{
-                    padding-left: 0px;
-                    margin-left:10px;
-                }
-                .chapters-mobile{
-                    display: block;
-                }
-                .chapters-mobile>.chapter-row>.col-md-6{
-                    width: 50% !important;
-                }
-                .single-chapter>.chapter-info{
-                    flex-direction: column;
-                    align-items: flex-start;
-                    justify-content: flex-end;
-                    padding: 10px;
-                }
-                .single-chapter>.chapter-info>.logo>img{
-                height: 30px;
-                widows: 30px;
-                border-radius: 50%;
-            }
-            .single-chapter>:hover.chapter-info>.logo>img{
-                background: rgba(255, 255, 255, 0.5);
-            }
-            .single-chapter>.chapter-info>.title{
-                line-height: 25px;
-                color:white;
-                font-size: 17px;
-                padding-left: 0px;
-                margin-right: 10px;
-
-            }
-            }
-
-        </style>
-         <h3 class="title-style-2 chapter-top">{{ $data->chapter_title ?? '' }}
-            <span> {{ $data->chapter_subtitle ?? '' }}</span>
-        </h3>
-        @include('front.home.chapter')
-
-    </div>
+        </div>
+    </section>
     <section class="tours padding-top padding-bottom" style="background-image: url('{{ asset($data->exp_image) }}')">
         <div class="container">
             <div class="tours-wrapper">

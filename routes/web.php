@@ -89,6 +89,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::prefix('chapters')->name('chapters.')->group(function(){
         Route::get('',[ChapterController::class,'index'])->name('index');
         Route::match(["GET","POST"],'add',[ChapterController::class,'add'])->name('add');
+        Route::match(["GET","POST"],'map',[ChapterController::class,'map'])->name('map');
         Route::match(["GET","POST"],'edit/{chapter}',[ChapterController::class,'edit'])->name('edit');
         Route::match(["GET","POST"],'del/{chapter}',[ChapterController::class,'del'])->name('del');
 

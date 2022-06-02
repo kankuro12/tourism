@@ -48,6 +48,7 @@
  Chapters
 @endsection
 @section('toolbar')
+<a href="{{route('admin.chapters.map')}}" class="btn btn-primary">Homepage Map</a>
 <a href="{{route('admin.chapters.add')}}" class="btn btn-primary">Add New</a>
 @endsection
 @section('content')

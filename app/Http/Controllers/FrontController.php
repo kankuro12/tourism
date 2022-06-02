@@ -42,7 +42,8 @@ class FrontController extends Controller
             'exp_image'=>'',
             'explore_video'=>''
         ]);;
-        return view('front.home.index', compact('hasmore','festivals', 'notices', 'data', 'chapters', 'guides', 'galleries', 'destinations', 'experiences'));
+        $chaptermap=(array)SM::getSetting('chaptermap');
+        return view('front.home.index', compact('chaptermap','hasmore','festivals', 'notices', 'data', 'chapters', 'guides', 'galleries', 'destinations', 'experiences'));
     }
 
     public function chapters()
