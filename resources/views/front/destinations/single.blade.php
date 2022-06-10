@@ -85,6 +85,16 @@
                             </tr>
                         @endforeach
                     </table>
+                    <hr>
+                    <style>
+                         iframe.map{
+                                width: 100%;
+                                height: 400px;
+                            }
+                    </style>
+                    <div class="map">
+                        <iframe src="https://maps.google.com/maps?q={{$destination->map}}&t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" class="map"></iframe>
+                    </div>
 
                 </div>
                 <div class="col-md-4">
@@ -112,5 +122,5 @@
 @endsection
 @section('script')
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
-    <script>
-    @endsection
+
+@endsection

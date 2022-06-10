@@ -18,7 +18,8 @@ class GalleryController extends Controller
             "Galleries ",
             "Festivals ",
             "Experiences ",
-            "Events "
+            "Events ",
+            "Hotels ",
         ];
         $name='';
         if($type==0){
@@ -40,6 +41,9 @@ class GalleryController extends Controller
         }
         else if($type==5){
             $name=DB::table('events')->where('id',$key)->first(['name'])->name;
+
+        } else if($type==6){
+            $name=DB::table('hotels')->where('id',$key)->first(['name'])->name;
 
         }
         $images=DB::table('images')->where('type',$type)->where('key',$key)->get();

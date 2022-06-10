@@ -10,6 +10,7 @@ use App\Models\Event;
 use App\Models\Experience;
 use App\Models\Festival;
 use App\Models\gallery;
+use App\Models\Hotel;
 use App\Models\Image;
 use App\Models\Notice;
 use App\Models\TourGuide;
@@ -31,6 +32,7 @@ class FrontController extends Controller
         $destinations = DB::table('destinations')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
         $experiences = DB::table('experiences')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image', 'short_desc']);
         $galleries = DB::table('galleries')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
+        $hotels = DB::table('hotels')->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image','short_desc','address','phone']);
         $data = SM::getSetting('homepage')??(object)([
             'slider_title'=>'',
             'slider_subtitle'=>'',
@@ -43,7 +45,7 @@ class FrontController extends Controller
             'explore_video'=>''
         ]);;
         $chaptermap=(array)SM::getSetting('chaptermap');
-        return view('front.home.index', compact('chaptermap','hasmore','festivals', 'notices', 'data', 'chapters', 'guides', 'galleries', 'destinations', 'experiences'));
+        return view('front.home.index', compact('hotels','chaptermap','hasmore','festivals', 'notices', 'data', 'chapters', 'guides', 'galleries', 'destinations', 'experiences'));
     }
 
     public function chapters()
@@ -58,6 +60,19 @@ class FrontController extends Controller
         $chapters = DB::table('chapters')->where('id', '!=', $chapter->id)->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
         $medias = Image::where('type', 0)->where('key', $chapter->id)->get();
         return view('front.chapters.single', compact('chapters', 'chapter', 'medias'));
+    }
+    public function hotels()
+    {
+        $hotels = DB::table('hotels')->get(['id', 'name', 'image','short_desc','address','phone']);
+        $data = SM::getSetting('homepage');
+
+        return view('front.hotels.index', compact('hotels', 'data'));
+    }
+    public function hotel(Hotel $hotel)
+    {
+        $hotels = DB::table('hotels')->where('id', '!=', $hotel->id)->orderByRaw('RAND()')->take(6)->get(['id', 'name', 'image']);
+        $medias = Image::where('type', 6)->where('key', $hotel->id)->get();
+        return view('front.hotels.single', compact('hotels', 'hotel', 'medias'));
     }
     public function festivals()
     {

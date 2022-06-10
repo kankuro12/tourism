@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\ExperienceController;
 use App\Http\Controllers\Admin\FestivalController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\GalleryMainController;
+use App\Http\Controllers\Admin\HotelController;
 use App\Http\Controllers\Admin\NoticeController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TourGuideController;
@@ -29,6 +30,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [FrontController::class,'home'])->name('home');
 route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
+route::get('hotels',[FrontController::class,'hotels'])->name('hotels');
+Route::get('hotel/{hotel}', [FrontController::class,'hotel'])->name('hotel');
 route::get('festivals',[FrontController::class,'festivals'])->name('festivals');
 Route::get('festival/{festival}', [FrontController::class,'festival'])->name('festival');
 route::get('events',[FrontController::class,'events'])->name('events');
@@ -152,6 +155,14 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
         Route::match(["GET","POST"],'del/{guide}',[TourGuideController::class,'del'])->name('del');
 
     });
+    Route::prefix('hotels')->name('hotels.')->group(function(){
+        Route::get('',[HotelController::class,'index'])->name('index');
+        Route::match(["GET","POST"],'add',[HotelController::class,'add'])->name('add');
+        Route::match(["GET","POST"],'edit/{hotel}',[HotelController::class,'edit'])->name('edit');
+        Route::match(["GET","POST"],'del/{hotel}',[HotelController::class,'del'])->name('del');
+
+    });
+
     Route::view('dashboard','welcome')->name('dashboard');
 });
 

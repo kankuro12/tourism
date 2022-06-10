@@ -64,6 +64,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Tenders</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('admin.hotels.index') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Hotels</span></a>
+    </li>
       <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapse-Setting"
               aria-expanded="true" aria-controls="collapse-Setting">
