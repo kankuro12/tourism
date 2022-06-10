@@ -76,8 +76,8 @@
                     </div>
                     <div class="navbar-header">
                         <div class="logo">
-                            <a href="index.html" class="header-logo">
-                                <img src="assets/images/logo/logo-white-color-1.png" alt="" />
+                            <a href="/" class="header-logo">
+                                <img src="{{asset('logo.png')}}" alt="" />
                             </a>
                         </div>
                     </div>
@@ -125,7 +125,7 @@
                                         <a href="{{route('guides')}}" class="link-page">Tour Guides</a>
                                     </li>
                                     <li>
-                                        <a href="{{route('events')}}" class="link-page">events</a>
+                                        <a href="{{route('events')}}" class="link-page">Events</a>
                                     </li>
                                 </ul>
                             </li>
@@ -133,6 +133,11 @@
                             <li>
                                 <a href="{{route('galleries')}}" class="main-menu">
                                     <span class="text">Gallery</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{route('hotels')}}" class="main-menu">
+                                    <span class="text">Hotels</span>
                                 </a>
                             </li>
                             <li>

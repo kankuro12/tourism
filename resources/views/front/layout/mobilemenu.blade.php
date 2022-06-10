@@ -45,6 +45,9 @@
                     <a href="{{route('notices')}}" class="main-menu">Notices</a>
                 </li>
                 <li>
+                    <a href="{{route('hotels')}}" class="main-menu">Hotels</a>
+                </li>
+                <li>
                     <a href="{{route('tenders')}}" class="main-menu">tenders</a>
                 </li>
                 <li>
