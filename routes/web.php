@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\TourGuideController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TenderController;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,11 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::get('migrate/{password}', function ($password) {
+    if($password=='ghp_rgy3sJsLENMe1Z20I1Zv2'){
+        Artisan::call('migrate');
+    }
+});
 Route::get('/', [FrontController::class,'home'])->name('home');
 route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
