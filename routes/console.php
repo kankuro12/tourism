@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Artisan;
 |
 */
 
-Artisan::command('inspire', function () {
-    $this->comment(Inspiring::quote());
+Artisan::command('pass', function () {
+    echo bcrypt('55ryx82aEu8cVE3');
 })->purpose('Display an inspiring quote');

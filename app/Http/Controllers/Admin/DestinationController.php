@@ -118,7 +118,7 @@ class DestinationController extends Controller
             $type->save();
             return redirect()->back()->with('message','Destination Type Saved Sucessfully');
         }else{
-            return view('admin.chapters.edit',compact('type'));
+            return view('admin.destination.type.edit',compact('type'));
         }
     }
 

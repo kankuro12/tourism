@@ -15,6 +15,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\TenderController;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,7 @@ Route::get('migrate/{password}', function ($password) {
         Artisan::call('migrate');
     }
 });
+
 Route::get('/', [FrontController::class,'home'])->name('home');
 route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
@@ -55,6 +57,9 @@ Route::get('tenders', [FrontController::class,'tenders'])->name('tenders');
 Route::get('who-is-who', [FrontController::class,'contact'])->name('contact');
 route::redirect('login','admin/login')->name('login');
 Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
+    Route::match(['get', 'post'], 'logout', function () {
+        Auth::logout();
+    });
     Route::prefix('setting')->name('setting.')->group(function(){
         route::match(['GET','POST'],'front',[SettingController::class,'front'])->name('front');
         route::match(['GET','POST'],'footer',[SettingController::class,'footer'])->name('footer');
@@ -171,9 +176,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     Route::view('dashboard','welcome')->name('dashboard');
 });
 
-route::get('da',function(){
-    echo bcrypt('password');
-});
+
 
 
 Route::prefix('admin')->name('admin.')->middleware(['guest'])->group(function(){
