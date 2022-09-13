@@ -104,7 +104,7 @@ $data = $footer['data'];
                         </div>
                         <div class="col-md-3 col-xs-6">
                             <div class="destination-widget widget">
-                                <div class="title-widget">Gallary</div>
+                                <div class="title-widget">Gallery</div>
                                 <div class="content-widget main-gallery-fancybox">
                                     <ul class="list-unstyled list-inline">
                                         @foreach ($footer['galleries'] as $gallery)
