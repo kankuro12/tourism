@@ -40,7 +40,9 @@ class DestinationController extends Controller
             $destination->name=$request->name;
             $destination->desc=$request->desc;
             $destination->map=$request->map;
-            $destination->image=$request->image->store('uploads/destination');
+            if($request->hasFile('image')){
+                $destination->image=$request->image->store('uploads/destination');
+            }
             $destination->save();
             return redirect()->back()->with('message','Destination Saved Sucessfully');
         }else{
