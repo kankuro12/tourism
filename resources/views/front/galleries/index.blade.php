@@ -2,7 +2,8 @@
 @section('css')
 @endsection
 @section('title')
-    Galleries
+    {{-- Galleries --}}
+    Bodoland Tourism Gallery
 @endsection
 @section('content')
 <section class="page-banner blog-detail" style="background-image: url({{asset($data->slider_image)}})">
@@ -15,11 +16,11 @@
                     </li>
 
                     <li class="active">
-                        <a href="#" class="link">Galleries</a>
+                        <a href="#" class="link">Bodoland Tourism Gallery</a>
                     </li>
                 </ol>
                 <div class="clearfix"></div>
-                <h1  style="margin-bottom:20px;">Galleries</h1>
+                <h1  style="margin-bottom:20px;">Bodoland Tourism Gallery</h1>
             </div>
         </div>
     </div>
