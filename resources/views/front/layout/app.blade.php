@@ -4,6 +4,7 @@
         <title>{{env('APP_NAME')}} | @yield('title')</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        @yield('meta')
         <!-- FONT CSS-->
         <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,400,500,700,900">
         <link type="text/css" rel="stylesheet" href="//fonts.googleapis.com/css?family=Montserrat:400,700">
@@ -23,21 +24,12 @@
         <link type="text/css" rel="stylesheet" href="{{asset('front/css/layout.css')}}">
         <link type="text/css" rel="stylesheet" href="{{asset('front/css/components.css')}}">
         <link type="text/css" rel="stylesheet" href="{{asset('front/css/responsive.css')}}">
-        <link type="text/css" rel="stylesheet" href="{{asset('front/css/color.css')}}">
+        {{-- <link type="text/css" rel="stylesheet" href="{{asset('front/css/color.css')}}"> --}}
         <!--link(type="text/css", rel='stylesheet', href='assets/css/color-1/color-1.css', id="color-skins")-->
         <link type="text/css" rel="stylesheet" href="#" id="color-skins">
         <script src="{{asset('front/libs/jquery/jquery-2.2.3.min.js')}}"></script>
         <script src="{{asset('front/libs/js-cookie/js.cookie.js')}}"></script>
-        <script>
-            if ((Cookies.get('color-skin') != undefined) && (Cookies.get('color-skin') != 'color-1'))
-            {
-                $('#color-skins').attr('href', 'assets/css/' + Cookies.get('color-skin') + '/' + 'color.css');
-            }
-            else if ((Cookies.get('color-skin') == undefined) || (Cookies.get('color-skin') == 'color-1'))
-            {
-                $('#color-skins').attr('href', 'assets/css/color-1/color.css');
-            }
-        </script>
+
         <style>
             .chapters {
                 padding: 40px 0px;
@@ -226,13 +218,18 @@
         <!-- LOADING JS FOR PAGE-->
         @yield('script')
         <script>
-
-            window.loading_screen = window.pleaseWait(
-            {
-                logo: logo_str,
-                backgroundColor: '#fff',
-                loadingHtml: "<div class='spinner sk-spinner-wave'><div class='rect1'></div><div class='rect2'></div><div class='rect3'></div><div class='rect4'></div><div class='rect5'></div></div>",
+            window.loading_screen={
+                finish:function(){}
+            }
+            $(document).ready(function () {
+                $(".wp-gallery").fancybox();
             });
+            // window.loading_screen = window.pleaseWait(
+            // {
+            //     logo: logo_str,
+            //     backgroundColor: '#fff',
+            //     loadingHtml: "<div class='spinner sk-spinner-wave'><div class='rect1'></div><div class='rect2'></div><div class='rect3'></div><div class='rect4'></div><div class='rect5'></div></div>",
+            // });
         </script>
     </body>
 </html>

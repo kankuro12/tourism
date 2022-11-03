@@ -111,7 +111,7 @@ $data = $footer['data'];
                                             <li class="gallery-content" title="{{$gallery->name}}">
 
                                                 <a href="{{ asset($gallery->image) }}"
-                                                    class="wp-gallery glry-relative  thumb">
+                                                    class="wp-gallery glry-relative  thumb" rel="gallery1">
                                                     <img src="{{ asset($gallery->image) }}" alt=""
                                                         class="img-responsive" />
                                                 </a>

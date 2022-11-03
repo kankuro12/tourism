@@ -78,7 +78,7 @@
           <div id="collapse-Setting" class="collapse" aria-labelledby="headingUtilities"
               data-parent="#accordionSidebar">
               <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{ route('admin.setting.front') }}">Front</a>
+                  {{-- <a class="collapse-item" href="{{ route('admin.setting.front') }}">Front</a> --}}
                   <a class="collapse-item" href="{{ route('admin.setting.footer') }}">Footer</a>
                   <a class="collapse-item" href="{{ route('admin.setting.homepage') }}">HomePage</a>
                   <a class="collapse-item" href="{{ route('admin.setting.contact') }}">Contact</a>

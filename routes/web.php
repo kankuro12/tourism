@@ -62,6 +62,7 @@ Route::prefix('admin')->name('admin.')->middleware('auth')->group(function(){
     });
     Route::prefix('setting')->name('setting.')->group(function(){
         route::match(['GET','POST'],'front',[SettingController::class,'front'])->name('front');
+        route::match(['GET','POST'],'meta',[SettingController::class,'meta'])->name('meta');
         route::match(['GET','POST'],'footer',[SettingController::class,'footer'])->name('footer');
         route::match(['GET','POST'],'homepage',[SettingController::class,'homePage'])->name('homepage');
         route::match(['GET','POST'],'contact',[SettingController::class,'contact'])->name('contact');
