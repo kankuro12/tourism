@@ -34,6 +34,13 @@ Route::get('migrate/{password}', function ($password) {
     }
 });
 
+Route::get('work/{password}', function ($password) {
+    if($password=='ghp_rgy3sJsLENMe1Z20I1Zv2'){
+        Artisan::call('work');
+    }
+});
+
+
 Route::get('/', [FrontController::class,'home'])->name('home');
 route::get('chapters',[FrontController::class,'chapters'])->name('chapters');
 Route::get('chapter/{chapter}', [FrontController::class,'chapter'])->name('chapter');
