@@ -2,6 +2,9 @@
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('galleries')}}">
+@endsection
 @section('title')
     Gallery - {{ $gallery->name }}
 @endsection

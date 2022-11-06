@@ -1,8 +1,12 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('festivals')}}">
+@endsection
 @section('title')
     Festivals
+
 @endsection
 @section('content')
 <section class="page-banner blog-detail" style="background-image: url({{asset($data->slider_image)}})">
@@ -29,7 +33,7 @@
         <div class="row">
             @foreach ($festivals as $festival)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('festival', ['festival' => $festival->id]) }}" class="chapter">
+                    <a href="{{ route('festival', ['festival' => $festival->slug]) }}" class="chapter">
                         <img src="{{ asset($festival->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">

@@ -2,6 +2,13 @@
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 @endsection
+@section('meta')
+@php
+$content=strip_tags($destination->desc);
+$meta=substr($content,0,250);
+@endphp
+<meta name="description" content="{{$meta}}">
+@endsection
 @section('title')
     {{ $type->name }} {{ $destination->name }}
 @endsection

@@ -2,6 +2,9 @@
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 @endsection
+@section('meta')
+<meta name="description" content="{{ $hotel->short_desc }}">
+@endsection
 @section('title')
     Hotel - {{ $hotel->name }}
 @endsection
@@ -134,7 +137,7 @@
                     </h3>
                     @foreach ($hotels as $hotel)
                         <div style="margin-bottom:10px;">
-                            <a href="{{ route('hotel', ['hotel' => $hotel->id]) }}" class="chapter">
+                            <a href="{{ route('hotel', ['hotel' => $hotel->slug]) }}" class="chapter">
                                 <img src="{{ asset($hotel->image) }}" alt="">
                                 <div class="overlay">
                                     <div class="inner">

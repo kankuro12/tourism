@@ -1,6 +1,9 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('experiences')}}">
+@endsection
 @section('title')
     Experiences
 @endsection
@@ -29,7 +32,7 @@
         <div class="row">
             @foreach ($experiences as $experience)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('experience', ['experience' => $experience->id]) }}" class="chapter">
+                    <a href="{{ route('experience', ['experience' => $experience->slug]) }}" class="chapter">
                         <img src="{{ asset($experience->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">

@@ -1,6 +1,13 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+    @php
+        $content=strip_tags($type->desc);
+        $meta=substr($content,0,250);
+    @endphp
+    <meta name="description" content="{{$meta}}">
+@endsection
 @section('title')
     {{$type->name}}
 @endsection
@@ -29,7 +36,7 @@
         <div class="row">
             @foreach ($destinations as $destination)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('destination', ['destination' => $destination->id]) }}" class="chapter">
+                    <a href="{{ route('destination', ['destination' => $destination->slug]) }}" class="chapter">
                         <img src="{{ asset($destination->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">

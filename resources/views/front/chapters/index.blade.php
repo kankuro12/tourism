@@ -1,6 +1,9 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('chapters')}}">
+@endsection
 @section('title')
     Chapters
 @endsection
@@ -29,7 +32,7 @@
         <div class="row">
             @foreach ($chapters as $chapter)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('chapter', ['chapter' => $chapter->id]) }}" class="chapter">
+                    <a href="{{ route('chapter', ['chapter' => $chapter->slug]) }}" class="chapter">
                         <img src="{{ asset($chapter->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">

@@ -17,6 +17,39 @@ class SettingController extends Controller
         }
     }
 
+    public function meta(Request $request)
+    {
+        $empty=[
+            "home"=>'',
+            "destinations"=>'',
+            "chapters"=>'',
+            "experiences"=>"",
+            "festivals"=>"",
+            'guides'=>"",
+            'events'=>"",
+            "galleries"=>"",
+            "hotels"=>"",
+            "notices"=>"",
+            "tenders"=>"",
+            "whoiswho"=>"",
+        ];
+
+        if($request->getMethod()=="GET"){
+            $data=SM::getSetting('meta')??(object)($empty);
+            return view('admin.setting.meta',compact('data'));
+
+        }else{
+            $data=[];
+            foreach ($empty as $key => $value) {
+                $data[$key]=$request->input($key)??$value;
+            }
+        }
+
+        SM::setSetting('meta',$data);
+        return redirect()->back()->with('message','Meta Setting Saved Sucessfuly');
+
+    }
+
     public function footer(Request $request)
     {
         if($request->getMethod()=="GET"){

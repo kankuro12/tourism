@@ -45,4 +45,31 @@ class SM{
         $s->save();
         return $s;
     }
+
+    public static function getmeta($key=null)
+    {
+        $empty=[
+            "home"=>'',
+            "destinations"=>'',
+            "chapters"=>'',
+            "experiences"=>"",
+            "festivals"=>"",
+            'guides'=>"",
+            'events'=>"",
+            "galleries"=>"",
+            "hotels"=>"",
+            "notices"=>"",
+            "tenders"=>"",
+            "whoiswho"=>"",
+        ];
+
+        $data=SM::getSetting('meta')??(object)($empty);
+        if($key==null){
+            return $data;
+        }else{
+            return ((array)$data)[$key];
+        }
+    }
+
+
 }

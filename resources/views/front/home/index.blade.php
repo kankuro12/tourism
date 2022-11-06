@@ -1,4 +1,7 @@
 @extends('front.layout.app')
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('home')}}">
+@endsection
 @section('css')
 
 @endsection
@@ -169,11 +172,11 @@
                         @foreach ($experiences as $experience)
                             <div class="tours-layout">
                                 <div class="image-wrapper">
-                                    <a href="{{route('experience',['experience'=>$experience->id])}}" class="link">
+                                    <a href="{{route('experience',['experience'=>$experience->slug])}}" class="link">
                                         <img src="{{ asset($experience->image) }}" alt="" class="img-responsive">
                                     </a>
                                     <div class="title-wrapper">
-                                        <a href="{{route('experience',['experience'=>$experience->id])}}" class="title">{{ $experience->name }}</a>
+                                        <a href="{{route('experience',['experience'=>$experience->slug])}}" class="title">{{ $experience->name }}</a>
                                         <i class="icons flaticon-circle"></i>
                                     </div>
 
@@ -183,7 +186,7 @@
                                     <div class="content">
 
                                         <p class="text">{{ $experience->short_desc }}</p>
-                                        <a href="{{route('experience',['experience'=>$experience->id])}}" class="left-btn">View Detail</a>
+                                        <a href="{{route('experience',['experience'=>$experience->slug])}}" class="left-btn">View Detail</a>
 
                                     </div>
                                 </div>
@@ -204,7 +207,7 @@
             <div class="row">
                 @foreach ($galleries as $gallery)
                     <div class="col-md-4 ">
-                        <a href="{{ route('gallery', ['gallery' => $gallery->id]) }}" class="chapter">
+                        <a href="{{ route('gallery', ['gallery' => $gallery->slug]) }}" class="chapter">
                             <img src="{{ asset($gallery->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
@@ -320,7 +323,7 @@
             <div class="row">
                 @foreach ($destinations as $destination)
                     <div class="col-md-4 ">
-                        <a href="{{ route('destination', ['destination' => $destination->id]) }}" class="chapter">
+                        <a href="{{ route('destination', ['destination' => $destination->slug]) }}" class="chapter">
                             <img src="{{ asset($destination->image) }}" alt="">
                             <div class="overlay">
                                 <div class="inner">
@@ -604,7 +607,7 @@
                             <div class="short_desc">{{$hotel->short_desc}}</div>
                             <div class="bottom">
                                 <a href="tel:{{$hotel->phone}}" class="call">Call Now</a>
-                                <a class="detail" href="{{route('hotel',['hotel'=>$hotel->id])}}">View Detail</a>
+                                <a class="detail" href="{{route('hotel',['hotel'=>$hotel->slug])}}">View Detail</a>
                             </div>
                         </div>
                     </div>

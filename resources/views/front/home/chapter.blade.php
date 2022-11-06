@@ -1,5 +1,8 @@
 <div class="chapters-desktop">
 
+    @php
+        $sc=DB::table('chapters')->get(['slug','id']);
+    @endphp
     <div class="chapter-row" >
         <div class="col-md-6 main">
             <div class="chapter-row">
@@ -58,7 +61,7 @@
             $data=$chaptermap['chapter_'.$i];
         @endphp
             <div class="col-md-6">
-                <a href="{{route('chapter',['chapter'=>$data->id])}}" class="single-chapter">
+                <a href="{{route('chapter',['chapter'=>$sc->where('id',$data->id)->first()->slug])}}" class="single-chapter">
                     <img class="feature-image" src="{{asset($data->mobile_image)}}" alt="">
                     <div class="chapter-info">
                         <div class="logo">

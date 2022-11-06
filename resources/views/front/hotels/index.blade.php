@@ -1,6 +1,9 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('hotels')}}">
+@endsection
 @section('title')
     Hotels
 @endsection
@@ -96,7 +99,7 @@
                             <div class="short_desc">{{ $hotel->short_desc }}</div>
                             <div class="bottom">
                                 <a href="tel:{{ $hotel->phone }}" class="call">Call Now</a>
-                                <a class="detail" href="{{route('hotel',['hotel'=>$hotel->id])}}">View Detail</a>
+                                <a class="detail" href="{{route('hotel',['hotel'=>$hotel->slug])}}">View Detail</a>
                             </div>
                         </div>
                     </div>

@@ -77,7 +77,7 @@
                     <div class="navbar-header">
                         <div class="logo">
                             <a href="/" class="header-logo">
-                                <img src="{{asset('logo.png')}}" alt="" />
+                                <img  alt="" />
                             </a>
                         </div>
                     </div>
@@ -98,7 +98,7 @@
                                 <ul class="dropdown-menu dropdown-menu-1">
                                     @foreach (App\Models\DestinationType::all() as $dt)
                                         <li>
-                                            <a href="{{route('destinations',['type'=>$dt->id])}}" class="link-page">{{$dt->name}}</a>
+                                            <a href="{{route('destinations',['type'=>$dt->slug])}}" class="link-page">{{$dt->name}}</a>
                                         </li>
                                     @endforeach
 

@@ -1,6 +1,9 @@
 @extends('front.layout.app')
 @section('css')
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('galleries')}}">
+@endsection
 @section('title')
     {{-- Galleries --}}
     Bodoland Tourism Gallery
@@ -30,7 +33,7 @@
         <div class="row">
             @foreach ($galleries as $gallery)
                 <div class="col-md-4 " style="padding-bottom:10px">
-                    <a href="{{ route('gallery', ['gallery' => $gallery->id]) }}" class="chapter">
+                    <a href="{{ route('gallery', ['gallery' => $gallery->slug]) }}" class="chapter">
                         <img src="{{ asset($gallery->image) }}" alt="">
                         <div class="overlay">
                             <div class="inner">

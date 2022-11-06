@@ -206,7 +206,7 @@
         <!-- LIBRARY JS-->
         <script src="{{asset('front/libs/bootstrap/js/bootstrap.min.js')}}"></script>
         <script src="{{asset('front/libs/detect-browser/browser.js')}}"></script>
-        {{-- <script src="{{asset('front/libs/smooth-scroll/jquery-smoothscroll.js')}}"></script> --}}
+        <script src="{{asset('front/libs/smooth-scroll/jquery-smoothscroll.js')}}"></script>
         <script src="{{asset('front/libs/wow-js/wow.min.js')}}"></script>
         <script src="{{asset('front/libs/slick-slider/slick.min.js')}}"></script>
         <script src="{{asset('front/libs/selectbox/js/jquery.selectbox-0.2.js')}}"></script>
