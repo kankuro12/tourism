@@ -1,4 +1,7 @@
 @extends('front.layout.app')
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('events')}}">
+@endsection
 @section('css')
 <style>
     .chapter-full {
@@ -79,7 +82,7 @@
             <div class="row">
                 @foreach ($events as $event)
                     <div class="col-md-6 " style="padding: 7px; ">
-                        <a href="{{ route('event', ['event' => $event->id]) }}" class="chapter-full">
+                        <a href="{{ route('event', ['event' => $event->slug]) }}" class="chapter-full">
                             <img src="{{ asset($event->image) }}" alt="">
                             <div class="overlay-full">
                                 <div class="inner">

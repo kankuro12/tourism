@@ -4,6 +4,9 @@
 @section('title')
     Tenders
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('tenders')}}">
+@endsection
 @section('content')
 <section class="page-banner blog-detail" style="background-image: url({{asset($data->slider_image)}})">
     <div class="container">

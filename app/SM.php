@@ -20,9 +20,9 @@ class SM{
             "logo"=>"",
 
            ]);
-           $destinations=DB::table('destinations')->orderByRaw('RAND()')->take(6)->get(['id','name']);
+           $destinations=DB::table('destinations')->orderByRaw('RAND()')->take(6)->get(['slug','name']);
            $galleries=DB::table('galleries')->orderByRaw('RAND()')->take(6)->get(['id','name','image']);
-           $festivals=DB::table('festivals')->orderByRaw('RAND()')->take(6)->get(['id','name','image']);
+           $festivals=DB::table('festivals')->orderByRaw('RAND()')->take(6)->get(['slug','name','image']);
            return compact('data','destinations','galleries','festivals');
     }
     public static function getSetting($key,$direct=false){

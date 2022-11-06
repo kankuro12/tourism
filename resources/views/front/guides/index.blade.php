@@ -126,6 +126,9 @@
     }
 </style>
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('guides')}}">
+@endsection
 @section('title')
     Tour Guides
 @endsection

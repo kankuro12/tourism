@@ -68,7 +68,7 @@ $data = $footer['data'];
                                     <ul class="list-unstyled">
                                         @foreach ($footer['destinations'] as $destination)
                                             <li>
-                                                <a href="#" class="link">{{ $destination->name }}</a>
+                                                <a href="{{route('destination',['destination'=>$destination->slug])}}" class="link">{{ $destination->name }}</a>
                                             </li>
                                         @endforeach
 
@@ -87,7 +87,7 @@ $data = $footer['data'];
                                         @foreach ($footer['festivals'] as $festival)
                                             <li class="festival-content" title="{{$festival->name}}">
 
-                                                <a href="{{ asset($festival->image) }}"
+                                                <a href="{{ route('festival',['festival'=>$festival->slug]) }}"
                                                     class="wp-festival glry-relative  thumb">
                                                     <img src="{{ asset($festival->image) }}" alt=""
                                                         class="img-responsive" />

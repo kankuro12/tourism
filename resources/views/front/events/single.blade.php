@@ -2,6 +2,9 @@
 @section('css')
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css" />
 @endsection
+@section('meta')
+<meta name="description" content="{{$event->short_desc}}">
+@endsection
 @section('title')
     event - {{ $event->name }}
 @endsection

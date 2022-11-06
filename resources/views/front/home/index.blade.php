@@ -296,16 +296,18 @@
                 <div class="col-md-8">
                     <div class="traveler-list">
                         @foreach ($festivals as $festival)
-                            <div class="traveler">
+                        <a href="{{route('festival',['festival'=>$festival->slug])}}">
+                            <div class="traveler" >
                                 <div>
                                     <img class="w-100" src="{{ asset($festival->image) }}" alt="">
                                 </div>
                                 <div class="wrapper-content">
                                     <br>
-                                    <p class="name">{{ $festival->name }}</p>
-                                    <p class="description" style="margin:0px;">{{ $festival->short_desc }}</p>
+                                    <p class="name" style="color:black;">{{ $festival->name }}</p>
+                                    <p class="description" style="margin:0px;color:#555E69;">{{ $festival->short_desc }}</p>
                                 </div>
                             </div>
+                        </a>
                         @endforeach
 
 

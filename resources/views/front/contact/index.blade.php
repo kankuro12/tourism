@@ -2,6 +2,9 @@
 @section('css')
 
 @endsection
+@section('meta')
+<meta name="description" content="{{App\SM::getMeta('whoiswho')}}">
+@endsection
 @section('title')
     Who is Who
 @endsection
