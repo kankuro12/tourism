@@ -19,7 +19,7 @@
                     <ul class="dropdown-menu dropdown-menu-1">
                         @foreach (App\Models\DestinationType::all() as $dt)
                             <li>
-                                <a href="{{ route('destinations', ['type' => $dt->id]) }}"
+                                <a href="{{ route('destinations', ['type' => $dt->slug]) }}"
                                     class="link-page">{{ $dt->name }}</a>
                             </li>
                         @endforeach
