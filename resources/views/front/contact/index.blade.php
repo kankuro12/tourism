@@ -41,7 +41,7 @@
                             <div class="main-organization">
                                 <div class="organization-title">
                                     <div  style="position: relative;height:100px;text-align:center;overflow:hidden">
-                                        @if ($other->image==null)
+                                        @if ($other->image==null )
                                         <img src="{{asset('defuser.png')}}" alt="" style="width: 40%;">
 
                                         @else

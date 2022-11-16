@@ -29,7 +29,7 @@ class TourGuideController extends Controller
             if($request->hasFile('image')){
                 $guide->image=$request->image->store('uploads/def');
             }else{
-                $guide->image='uploads/def/guide.jpeg';
+                $guide->image='defuser.png';
             }
             $guide->save();
             return redirect()->back()->with('message','Guide Saved Sucessfully');
