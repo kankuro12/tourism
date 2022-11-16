@@ -40,21 +40,31 @@
 
                             <div class="main-organization">
                                 <div class="organization-title">
+                                    <div  style="position: relative;height:100px;text-align:center;overflow:hidden">
+                                        <img src="{{asset($other->image)}}" alt="" style="width: 40%;">
+                                    </div>
+
                                     <a href="#" class="title">{{$other->name}}</a>
                                     <p class="text">{{$other->designation}}</p>
                                 </div>
                                 <div class="content-widget">
                                     <div class="info-list">
                                         <ul class="list-unstyled">
+                                            @if ($other->phone!="")
 
                                             <li class="main-list">
                                                 <i class="icons fa fa-phone"></i>
                                                 <a href="tel:{{$other->phone}}" class="link">{{$other->phone}}</a>
                                             </li>
+                                            @endif
+                                            @if ($other->email!="")
+
                                             <li class="main-list">
                                                 <i class="icons fa fa-envelope-o"></i>
                                                 <a href="mailto:{{$other->email}}" class="link">{{$other->email}}</a>
                                             </li>
+                                            @endif
+
                                         </ul>
                                     </div>
                                 </div>

@@ -232,11 +232,18 @@ class SettingController extends Controller
             $others=[];
             if ($request->filled('others')) {
                 foreach ($request->others as $key => $other) {
+                    $image="";
+                    if($request->hasFile('image_'.$other)){
+                        $image=$request->file('image_'.$other)->store('uploads/contact');
+                    }else{
+                        $image=$request->input('old_image_'.$other)??"";
+                    }
                     array_push($others,[
                         'name'=>$request->input('name_'.$other)??'',
                         'phone'=>$request->input('phone_'.$other)??'',
                         'designation'=>$request->input('designation_'.$other)??'',
                         'email'=>$request->input('email_'.$other)??'',
+                        'image'=>$image,
                     ]);
                 }
             }

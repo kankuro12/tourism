@@ -23,7 +23,7 @@ $meta=substr($content,0,250);
                         </li>
 
                         <li>
-                            <a href="{{ route('destinations', ['type' => $type->id]) }}"
+                            <a href="{{ route('destinations', ['type' => $type->slug]) }}"
                                 class="link">{{ $type->name }}</a>
                         </li>
                         <li class="active">

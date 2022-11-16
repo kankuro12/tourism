@@ -217,4 +217,5 @@ class FrontController extends Controller
         $data = SM::getSetting('homepage');
         return view('front.tenders.index',compact('tenders','data'));
     }
+
 }

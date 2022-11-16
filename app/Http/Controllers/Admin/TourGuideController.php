@@ -26,7 +26,11 @@ class TourGuideController extends Controller
             $guide->instagram=$request->instagram;
             $guide->twitter=$request->twitter;
             $guide->about=$request->about;
-            $guide->image=$request->image->store('uploads/def');
+            if($request->hasFile('image')){
+                $guide->image=$request->image->store('uploads/def');
+            }else{
+                $guide->image='uploads/def/guide.jpeg';
+            }
             $guide->save();
             return redirect()->back()->with('message','Guide Saved Sucessfully');
         }else{
